@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>C++ named requirements: SequenceContainer - cppreference.com</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.21.2">
+<link rel="shortcut icon" href="../../../common/favicon.ico">
+<link rel="stylesheet" href="../../../common/ext.css">
+<meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="../../../common/site_modules.css">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:472787eddcf4605d11de8c7ef047234f */</style>
+
+<script src="../../../common/startup_scripts.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/named_req/SequenceContainer","wgTitle":"cpp/named req/SequenceContainer","wgCurRevisionId":178156,"wgArticleId":8994,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"cpp/named_req/SequenceContainer","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ColiruCompiler":1,"gadget-StandardRevisions":1,"gadget-MathJax":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-js:7:173cd59b4efc63a37dd7498667b0fea2 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_named_req_SequenceContainer skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <!-- /header -->
+        <!-- content -->
+<div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HW0LXMYCY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HW0LXMYCY');
+</script>
+                <h1 id="firstHeading" class="firstHeading"><span style="font-size:0.7em; line-height:130%">C++ named requirements:</span> <span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">SequenceContainer</span></h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">From cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a>‎ | <a href="../named_req.html" title="cpp/named req">named req</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="t-navbar" style=""><div class="t-navbar-sep"> </div><div class="t-navbar-head"><a href="../../cpp.html" title="cpp">C++</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+<tr class="t-nv"><td colspan="5"><a href="../compiler_support.html" title="cpp/compiler support">Compiler support</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../freestanding.html" title="cpp/freestanding">Freestanding and hosted</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../language.html" title="cpp/language">Language</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../standard_library.html" title="cpp/standard library">Standard library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../headers.html" title="cpp/header">Standard library headers</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../named_req.html" title="cpp/named req">Named requirements</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../feature_test.html" title="cpp/feature test">Feature test macros</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../utility.html#Language_support" title="cpp/utility">Language support library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../concepts.html" title="cpp/concepts">Concepts library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../error.html" title="cpp/error">Diagnostics library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../memory.html" title="cpp/memory">Memory management library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../meta.html" title="cpp/meta">Metaprogramming library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../utility.html" title="cpp/utility">General utilities library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../container.html" title="cpp/container">Containers library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../iterator.html" title="cpp/iterator">Iterators library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../ranges.html" title="cpp/ranges">Ranges library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../algorithm.html" title="cpp/algorithm">Algorithms library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../string.html" title="cpp/string">Strings library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../text.html" title="cpp/text">Text processing library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../numeric.html" title="cpp/numeric">Numerics library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../chrono.html" title="cpp/chrono">Date and time library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../io.html" title="cpp/io">Input/output library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../filesystem.html" title="cpp/filesystem">Filesystem library</a> <span class="t-mark-rev t-since-cxx17">(C++17)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../atomic.html" title="cpp/thread">Concurrency support library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../experimental/execution.html" title="cpp/execution">Execution support library</a> <span class="t-mark-rev t-since-cxx26">(C++26)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../experimental.html" title="cpp/experimental">Technical specifications</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../symbol_index.html" title="cpp/symbol index">Symbols index</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../links/libs.html" title="cpp/links/libs">External libraries</a></td></tr>
+</table></div><div></div></div></div></div><div class="t-navbar-sep"> </div><div class="t-navbar-head"><a href="../named_req.html" title="cpp/named req">C++ named requirements</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Basic" title="cpp/named req">Basic</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="DefaultConstructible.html" title="cpp/named req/DefaultConstructible"><span class="t-lines"><span>DefaultConstructible</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="MoveConstructible.html" title="cpp/named req/MoveConstructible"><span class="t-lines"><span>MoveConstructible</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="CopyConstructible.html" title="cpp/named req/CopyConstructible"><span class="t-lines"><span>CopyConstructible</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="CopyAssignable.html" title="cpp/named req/CopyAssignable"><span class="t-lines"><span>CopyAssignable</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="MoveAssignable.html" title="cpp/named req/MoveAssignable"><span class="t-lines"><span>MoveAssignable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Destructible.html" title="cpp/named req/Destructible"><span class="t-lines"><span>Destructible</span></span></a></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Type_properties" title="cpp/named req">Type properties</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="ScalarType.html" title="cpp/named req/ScalarType"><span class="t-lines"><span>ScalarType</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="PODType.html" title="cpp/named req/PODType"><span class="t-lines"><span>PODType</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="TriviallyCopyable.html" title="cpp/named req/TriviallyCopyable"><span class="t-lines"><span>TriviallyCopyable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="TrivialType.html" title="cpp/named req/TrivialType"><span class="t-lines"><span>TrivialType</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="StandardLayoutType.html" title="cpp/named req/StandardLayoutType"><span class="t-lines"><span>StandardLayoutType</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span><code>  </code></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="ImplicitLifetimeType.html" title="cpp/named req/ImplicitLifetimeType"><span class="t-lines"><span>ImplicitLifetimeType</span></span></a></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Library-wide" title="cpp/named req">Library-wide</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="BooleanTestable.html" title="cpp/named req/BooleanTestable"><span class="t-lines"><span>BooleanTestable</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="EqualityComparable.html" title="cpp/named req/EqualityComparable"><span class="t-lines"><span>EqualityComparable</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="LessThanComparable.html" title="cpp/named req/LessThanComparable"><span class="t-lines"><span>LessThanComparable</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Swappable.html" title="cpp/named req/Swappable"><span class="t-lines"><span>Swappable</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="ValueSwappable.html" title="cpp/named req/ValueSwappable"><span class="t-lines"><span>ValueSwappable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="NullablePointer.html" title="cpp/named req/NullablePointer"><span class="t-lines"><span>NullablePointer</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Hash.html" title="cpp/named req/Hash"><span class="t-lines"><span>Hash</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Allocator.html" title="cpp/named req/Allocator"><span class="t-lines"><span>Allocator</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="FunctionObject.html" title="cpp/named req/FunctionObject"><span class="t-lines"><span>FunctionObject</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Callable.html" title="cpp/named req/Callable"><span class="t-lines"><span>Callable</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Predicate.html" title="cpp/named req/Predicate"><span class="t-lines"><span>Predicate</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="BinaryPredicate.html" title="cpp/named req/BinaryPredicate"><span class="t-lines"><span>BinaryPredicate</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Compare.html" title="cpp/named req/Compare"><span class="t-lines"><span>Compare</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><br>
+</td></tr>
+<tr class="t-nv"><td colspan="5"><br>
+</td></tr>
+<tr class="t-nv"><td colspan="5"><br>
+</td></tr>
+<tr class="t-nv"><td colspan="5"><br>
+</td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Container" title="cpp/named req">Container</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Container.html" title="cpp/named req/Container"><span class="t-lines"><span>Container</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="ReversibleContainer.html" title="cpp/named req/ReversibleContainer"><span class="t-lines"><span>ReversibleContainer</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="AllocatorAwareContainer.html" title="cpp/named req/AllocatorAwareContainer"><span class="t-lines"><span>AllocatorAwareContainer</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><strong class="selflink"><span class="t-lines"><span>SequenceContainer</span></span></strong></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="ContiguousContainer.html" title="cpp/named req/ContiguousContainer"><span class="t-lines"><span>ContiguousContainer</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="AssociativeContainer.html" title="cpp/named req/AssociativeContainer"><span class="t-lines"><span>AssociativeContainer</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="UnorderedAssociativeContainer.html" title="cpp/named req/UnorderedAssociativeContainer"><span class="t-lines"><span>UnorderedAssociativeContainer</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span><code>  </code></span></span></div></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"><a href="../named_req.html#Container_element" title="cpp/named req">Container element</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="DefaultInsertable.html" title="cpp/named req/DefaultInsertable"><span class="t-lines"><span>DefaultInsertable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="CopyInsertable.html" title="cpp/named req/CopyInsertable"><span class="t-lines"><span>CopyInsertable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="MoveInsertable.html" title="cpp/named req/MoveInsertable"><span class="t-lines"><span>MoveInsertable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span class="t-lines"><span>EmplaceConstructible</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Erasable.html" title="cpp/named req/Erasable"><span class="t-lines"><span>Erasable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Iterator" title="cpp/named req">Iterator</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Iterator.html" title="cpp/named req/Iterator"><span class="t-lines"><span>LegacyIterator</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="InputIterator.html" title="cpp/named req/InputIterator"><span class="t-lines"><span>LegacyInputIterator</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="OutputIterator.html" title="cpp/named req/OutputIterator"><span class="t-lines"><span>LegacyOutputIterator</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="ForwardIterator.html" title="cpp/named req/ForwardIterator"><span class="t-lines"><span>LegacyForwardIterator</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="BidirectionalIterator.html" title="cpp/named req/BidirectionalIterator"><span class="t-lines"><span>LegacyBidirectionalIterator</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="RandomAccessIterator.html" title="cpp/named req/RandomAccessIterator"><span class="t-lines"><span>LegacyRandomAccessIterator</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="ContiguousIterator.html" title="cpp/named req/ContiguousIterator"><span class="t-lines"><span>LegacyContiguousIterator</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="ConstexprIterator.html" title="cpp/named req/ConstexprIterator"><span class="t-lines"><span>ConstexprIterator</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Stream_I.2FO_functions" title="cpp/named req">Stream I/O</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="FormattedInputFunction.html" title="cpp/named req/FormattedInputFunction"><span class="t-lines"><span>FormattedInputFunction</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="UnformattedInputFunction.html" title="cpp/named req/UnformattedInputFunction"><span class="t-lines"><span>UnformattedInputFunction</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="FormattedOutputFunction.html" title="cpp/named req/FormattedOutputFunction"><span class="t-lines"><span>FormattedOutputFunction</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="UnformattedOutputFunction.html" title="cpp/named req/UnformattedOutputFunction"><span class="t-lines"><span>UnformattedOutputFunction</span></span></a></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Formatters" title="cpp/named req">Formatters</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="BasicFormatter.html" title="cpp/named req/BasicFormatter"><span class="t-lines"><span>BasicFormatter</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Formatter.html" title="cpp/named req/Formatter"><span class="t-lines"><span>Formatter</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Random_Number_Generation" title="cpp/named req">Random Numbers</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="SeedSequence.html" title="cpp/named req/SeedSequence"><span class="t-lines"><span>SeedSequence</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="RandomNumberEngine.html" title="cpp/named req/RandomNumberEngine"><span class="t-lines"><span>RandomNumberEngine</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="RandomNumberDistribution.html" title="cpp/named req/RandomNumberDistribution"><span class="t-lines"><span>RandomNumberDistribution</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="UniformRandomBitGenerator.html" title="cpp/named req/UniformRandomBitGenerator"><span class="t-lines"><span>UniformRandomBitGenerator</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="RandomNumberEngineAdaptor.html" title="cpp/named req/RandomNumberEngineAdaptor"><span class="t-lines"><span>RandomNumberEngineAdaptor</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Concurrency" title="cpp/named req">Concurrency</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="BasicLockable.html" title="cpp/named req/BasicLockable"><span class="t-lines"><span>BasicLockable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Lockable.html" title="cpp/named req/Lockable"><span class="t-lines"><span>Lockable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="TimedLockable.html" title="cpp/named req/TimedLockable"><span class="t-lines"><span>TimedLockable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="SharedLockable.html" title="cpp/named req/SharedLockable"><span class="t-lines"><span>SharedLockable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14">(C++14)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="SharedTimedLockable.html" title="cpp/named req/SharedTimedLockable"><span class="t-lines"><span>SharedTimedLockable</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14">(C++14)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Mutex.html" title="cpp/named req/Mutex"><span class="t-lines"><span>Mutex</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="TimedMutex.html" title="cpp/named req/TimedMutex"><span class="t-lines"><span>TimedMutex</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="SharedMutex.html" title="cpp/named req/SharedMutex"><span class="t-lines"><span>SharedMutex</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="SharedTimedMutex.html" title="cpp/named req/SharedTimedMutex"><span class="t-lines"><span>SharedTimedMutex</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx14">(C++14)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Ranges" title="cpp/named req">Ranges</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="RangeAdaptorObject.html" title="cpp/named req/RangeAdaptorObject"><span class="t-lines"><span>RangeAdaptorObject</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="RangeAdaptorClosureObject.html" title="cpp/named req/RangeAdaptorClosureObject"><span class="t-lines"><span>RangeAdaptorClosureObject</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx20">(C++20)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Multidimensional_View_Customization" title="cpp/named req">Multidimensional View</a></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="LayoutMapping.html" title="cpp/named req/LayoutMapping"><span class="t-lines"><span>LayoutMapping</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23">(C++23)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="LayoutMappingPolicy.html" title="cpp/named req/LayoutMappingPolicy"><span class="t-lines"><span>LayoutMappingPolicy</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23">(C++23)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="AccessorPolicy.html" title="cpp/named req/AccessorPolicy"><span class="t-lines"><span>AccessorPolicy</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx23">(C++23)</span></span></span></div></div></td></tr>
+<tr class="t-nv-h1"><td colspan="5"><a href="../named_req.html#Other" title="cpp/named req">Other</a></td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="CharTraits.html" title="cpp/named req/CharTraits"><span class="t-lines"><span>CharTraits</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="RegexTraits.html" title="cpp/named req/RegexTraits"><span class="t-lines"><span>RegexTraits</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span><code>  </code></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="BitmaskType.html" title="cpp/named req/BitmaskType"><span class="t-lines"><span>BitmaskType</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="LiteralType.html" title="cpp/named req/LiteralType"><span class="t-lines"><span>LiteralType</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="NumericType.html" title="cpp/named req/NumericType"><span class="t-lines"><span>NumericType</span></span></a></div></div></td></tr>
+</table></div></td><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="UnaryTypeTrait.html" title="cpp/named req/UnaryTypeTrait"><span class="t-lines"><span>UnaryTypeTrait</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="BinaryTypeTrait.html" title="cpp/named req/BinaryTypeTrait"><span class="t-lines"><span>BinaryTypeTrait</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="TransformationTrait.html" title="cpp/named req/TransformationTrait"><span class="t-lines"><span>TransformationTrait</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="Clock.html" title="cpp/named req/Clock"><span class="t-lines"><span>Clock</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-named-req-table"><div><a href="TrivialClock.html" title="cpp/named req/TrivialClock"><span class="t-lines"><span>TrivialClock</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div></td></tr>
+</table></div></td></tr>
+<tr class="t-nv"><td colspan="5"><br>
+</td></tr>
+</table></div></td></tr>
+</table></div><div></div></div></div></div><div class="t-navbar-sep"> </div></div>
+<p>A <strong class="selflink"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">SequenceContainer</span></strong> is a <a href="Container.html" title="cpp/named req/Container"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">Container</span></a> that stores objects of the same type in a linear arrangement.
+</p>
+<h3><span class="mw-headline" id="Requirements">Requirements</span></h3>
+<p>Given the following types and values:
+</p>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-hitem">
+<td> Type
+</td>
+<td> Definition
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code>C</code>
+</td>
+<td> a sequence container class
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code>T</code>
+</td>
+<td> the element type of <code>C</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code>A</code>
+</td>
+<td> the allocator type of <code>C</code>:
+<ul><li> <code>C::allocator_type</code> if it exists,
+</li><li> otherwise <span class="mw-geshi cpp source-cpp"><a href="../memory/allocator.html"><span class="kw704">std::<span class="me2">allocator</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span>
+</li></ul>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code>R</code> <span class="t-mark-rev t-since-cxx23">(since C++23)</span>
+</td>
+<td> a type that models <a href="../ranges/to.html#container_compatible_range" title="cpp/ranges/to"><tt><i>container-compatible-range</i></tt></a> ﻿<code>&lt;T&gt;</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code>Args</code> <span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td> a template parameter pack
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code>Iter</code>
+</td>
+<td> <code>C::iterator</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code>Ref</code>
+</td>
+<td> <code>C::reference</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code>CRef</code>
+</td>
+<td> <code>C::const_reference</code>
+</td></tr>
+
+
+<tr class="t-dsc-hitem">
+<td> Value
+</td>
+<td> Definition
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>
+</td>
+<td> a value of type <code>C</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">cv</span></span>
+</td>
+<td> a value of type <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> C</span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span>
+</td>
+<td> <a href="InputIterator.html" title="cpp/named req/InputIterator"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">LegacyInputIterator</span>s</a> such that <span style="display: inline-block;"><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>, </code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code></span> is a <a href="../iterator.html#Ranges" title="cpp/iterator">valid range</a> and that the iterators refer to elements implicitly convertible to <code>C::value_type</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> <span class="t-mark-rev t-since-cxx23">(since C++23)</span>
+</td>
+<td> a value of type <code>R</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">il</span></span> <span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td> a value of type <span class="mw-geshi cpp source-cpp"><a href="../utility/initializer_list.html"><span class="kw964">std::<span class="me2">initializer_list</span></span></a><span class="sy1">&lt;</span>C<span class="sy4">::</span><span class="me2">value_type</span><span class="sy1">&gt;</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span>
+</td>
+<td> a value of type <code>C::size_type</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>
+</td>
+<td> a valid <a href="../iterator.html" title="cpp/iterator">const iterator</a> into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">q</span></span>
+</td>
+<td> a <a href="../iterator.html#Dereferenceability_and_validity" title="cpp/iterator">valid dereferenceable</a> const iterator into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">q1</span></span>, <span class="t-c"><span class="mw-geshi cpp source-cpp">q2</span></span>
+</td>
+<td> const iterators into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> such that <span style="display: inline-block;"><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">q1</span></span><code>, </code><span class="t-c"><span class="mw-geshi cpp source-cpp">q2</span></span><code>)</code></span> is a valid range
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span>
+</td>
+<td> <span class="t-rev-inl t-until-cxx11"><span>a value</span><span><span class="t-mark-rev t-until-cxx11">(until C++11)</span></span></span><span class="t-rev-inl t-since-cxx11"><span>an <a href="../language/value_category.html" title="cpp/language/value category">lvalue</a> or const rvalue</span><span><span class="t-mark-rev t-since-cxx11">(since C++11)</span></span></span> of type <code>C::value_type</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span> <span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td> a non-const rvalue of type <code>C::value_type</code>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span> <span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td> a function parameter pack with the pattern <code>Arg&amp;&amp;</code>
+</td></tr>
+
+</table>
+<p><code>C</code> satisfies the requirements of <span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">SequenceContainer</span> if all following conditions are satisfied:
+</p>
+<ul><li> <code>C</code> satisfies the requirements of <a href="Container.html" title="cpp/named req/Container"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">Container</span></a>.
+</li><li> The following statements and expressions are well-formed and have the specified semantics:
+</li></ul>
+<div style="max-width: 100%; max-height: 80vh; overflow-y: scroll; margin: 1em 0;">
+<table class="wikitable" style="margin: 0;">
+
+<tr style="position: sticky; top: 0;">
+<th colspan="4" style="font-size: 16px; line-height: 16px;">Basic operations<br><span style="font-weight: normal;"><span style="font-size:0.7em; line-height:130%">(required for all sequence containers in the <a href="SequenceContainer.html#Standard_library">standard library</a><span class="t-rev-inl t-since-cxx11"><span> except <span class="t-lc"><a href="../container/array.html" title="cpp/container/array">std::array</a></span></span><span><span class="t-mark-rev t-since-cxx11">(since C++11)</span></span></span>)</span></span>
+</th></tr>
+<tr>
+<th colspan="2">Statement
+</th>
+<th colspan="2">    Semantics<sup id="cite_ref-1" class="reference"><a href="SequenceContainer.html#cite_note-1">[1]</a></sup>
+</th></tr>
+<tr>
+<td rowspan="3" colspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">C c<span class="br0">(</span>n, t<span class="br0">)</span><span class="sy4">;</span></span></span>
+</td>
+<td>Effect
+</td>
+<td>Constructs the sequence container holding <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> copies of <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span>.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<p><code>T</code> is <a href="CopyInsertable.html" title="cpp/named req/CopyInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyInsertable</span></a> into <code>C</code>.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+</td></tr>
+<tr>
+<td>Postcondition 
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../iterator/distance.html"><span class="kw678">std::<span class="me2">distance</span></span></a><span class="br0">(</span>c.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span>.
+</td></tr>
+<tr>
+<td rowspan="3" colspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">C c<span class="br0">(</span>i, j<span class="br0">)</span><span class="sy4">;</span></span></span>
+</td>
+<td>Effect
+</td>
+<td>Constructs the sequence container equal, element-wise, to the range <span style="display: inline-block;"><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>, </code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code></span>.
+<ul><li> Each iterator in the range <span style="display: inline-block;"><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>, </code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code></span> is dereferenced exactly once.
+</li></ul>
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<p><code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>i</span></span>.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+</td></tr>
+<tr>
+<td>Postcondition
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../iterator/distance.html"><span class="kw678">std::<span class="me2">distance</span></span></a><span class="br0">(</span>c.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, c.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../iterator/distance.html"><span class="kw678">std::<span class="me2">distance</span></span></a><span class="br0">(</span>i, j<span class="br0">)</span></span></span>.
+</td></tr>
+<tr>
+<th>Expression
+</th>
+<th> Type 
+</th>
+<th colspan="2">Semantics
+</th></tr>
+<tr>
+<td rowspan="3"><span style="font-size:0.7em; line-height:130%"><span class="t-c"><span class="mw-geshi cpp source-cpp">C<span class="br0">(</span><a href="../ranges/from_range.html"><span class="kw3602">std::<span class="me2">from_range</span></span></a>, rg<span class="br0">)</span></span></span></span><br><span class="t-mark-rev t-since-cxx23">(since C++23)</span>
+</td>
+<td rowspan="3"><code>C</code>
+</td>
+<td>Effect
+</td>
+<td>Constructs the sequence container equal, element-wise, to the range <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span>.
+<ul><li> Each iterator in the range <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> is dereferenced exactly once.
+</li></ul>
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>X</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../ranges/begin.html"><span class="kw2900">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span>.
+</td></tr>
+<tr>
+<td>Postcondition
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../iterator/distance.html"><span class="kw678">std::<span class="me2">distance</span></span></a><span class="br0">(</span>begin<span class="br0">(</span><span class="br0">)</span>, end<span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../iterator/ranges/distance.html"><span class="kw3160">ranges::<span class="me2">distance</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span>.
+</td></tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">C<span class="br0">(</span>il<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td><code>C</code>
+</td>
+<td colspan="2">Equivalent to <span class="t-c"><span class="mw-geshi cpp source-cpp">C<span class="br0">(</span>il.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, il.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="4"><span class="t-c"><span class="mw-geshi cpp source-cpp">v <span class="sy1">=</span> il</span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td rowspan="4"><code>C&amp;</code>
+</td>
+<td>Effect
+</td>
+<td>Assigns the range represented by <span class="t-c"><span class="mw-geshi cpp source-cpp">il</span></span> into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>.<sup id="cite_ref-2" class="reference"><a href="SequenceContainer.html#cite_note-2">[2]</a></sup>
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>this</span></span>
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="CopyInsertable.html" title="cpp/named req/CopyInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyInsertable</span></a> into <code>C</code> and <a href="CopyAssignable.html" title="cpp/named req/CopyAssignable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyAssignable</span></a>.
+</td></tr>
+<tr>
+<td>Postcondition
+</td>
+<td>Existing elements of <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> are either destroyed or assigned to.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">emplace</span><span class="br0">(</span>p, args<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td rowspan="3"><code>Iter</code> 
+</td>
+<td>Effect
+</td>
+<td>Insert an object of type <code>T</code>, constructed with <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../utility/forward.html"><span class="kw1125">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span> before <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>.
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td>An iterator that points to the new element constructed from <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span> into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, t<span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><code>Iter</code>
+</td>
+<td>Effect
+</td>
+<td>Inserts a copy of <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> before <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>.
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td>An iterator that points to the copy of <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> inserted into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<p><code>T</code> is <a href="CopyInsertable.html" title="cpp/named req/CopyInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyInsertable</span></a> into <code>C</code>.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, rv<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td rowspan="3"><code>Iter</code>
+</td>
+<td>Effect
+</td>
+<td>Inserts a copy of <span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span> before <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>, possibly using move semantics.
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td>An iterator that points to the copy of <span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span> inserted into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="MoveInsertable.html" title="cpp/named req/MoveInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">MoveInsertable</span></a> into <code>C</code>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, n, t<span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><code>Iter</code>
+</td>
+<td>Effect
+</td>
+<td>Inserts <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> copies of <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span> before <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>.
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td>An iterator that points to the copy of the first element inserted into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>, or <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> if <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp">​<span class="nu0">0</span>​</span></span>.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<p><code>T</code> is <a href="CopyInsertable.html" title="cpp/named req/CopyInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyInsertable</span></a> into <code>C</code> and <a href="CopyAssignable.html" title="cpp/named req/CopyAssignable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyAssignable</span></a>.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, i, j<span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><code>Iter</code>
+</td>
+<td>Effect
+</td>
+<td>Inserts copies of elements in <span style="display: inline-block;"><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>, </code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code></span> before <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>.
+<ul><li> Each iterator in the range <span style="display: inline-block;"><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>, </code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code></span> is dereferenced exactly once.
+</li></ul>
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td>An iterator that points to the copy of the first element inserted into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>, or <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> if <span class="t-c"><span class="mw-geshi cpp source-cpp">i <span class="sy1">==</span> j</span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<ul><li> <code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>i</span></span>.
+</li></ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+<ul><li> <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> and <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span> are not in <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>.
+</li></ul>
+</td></tr>
+<tr>
+<td rowspan="3"><span style="font-size:0.7em; line-height:130%"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert_range</span><span class="br0">(</span>p, rg<span class="br0">)</span></span></span></span><br><span class="t-mark-rev t-since-cxx23">(since C++23)</span>
+</td>
+<td rowspan="3"><code>Iter</code>
+</td>
+<td>Effect
+</td>
+<td>Inserts copies of elements in <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> before <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span>.
+<ul><li> Each iterator in the range <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> is dereferenced exactly once.
+</li></ul>
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td>An iterator that points to the copy of the first element inserted into <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>, or <span class="t-c"><span class="mw-geshi cpp source-cpp">p</span></span> if <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> is empty.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<ul><li> <code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../ranges/begin.html"><span class="kw2900">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span>.
+</li><li> <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> and <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> do not overlap.
+</li></ul>
+</td></tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, il<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td><code>Iter</code>
+</td>
+<td colspan="2">Equivalent to <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, il.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, il.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">erase</span><span class="br0">(</span>q<span class="br0">)</span></span></span>
+</td>
+<td rowspan="2"><code>Iter</code>
+</td>
+<td>Effect
+</td>
+<td>Erases the element pointed to by <span class="t-c"><span class="mw-geshi cpp source-cpp">q</span></span>.
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td>An iterator that points to the element immediately following <span class="t-c"><span class="mw-geshi cpp source-cpp">q</span></span> prior to the element being erased, or <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span> if no such element exists.
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">erase</span><span class="br0">(</span>q1, q2<span class="br0">)</span></span></span>
+</td>
+<td rowspan="2"><code>Iter</code>
+</td>
+<td>Effect
+</td>
+<td>Erases elements in <span style="display: inline-block;"><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">q1</span></span><code>, </code><span class="t-c"><span class="mw-geshi cpp source-cpp">q2</span></span><code>)</code></span>.
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td>An iterator that points to the element pointed to by <span class="t-c"><span class="mw-geshi cpp source-cpp">q2</span></span> prior to any elements being erased, or <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span> if no such element exists.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">clear</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Effect
+</td>
+<td>Destroys all elements in <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>.
+<ul><li> Invalidates all references, pointers, and iterators referring to the elements of <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> and may invalidate the past-the-end iterator.
+</li></ul>
+</td></tr>
+<tr>
+<td>Postcondition
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span></span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>.
+</td></tr>
+<tr>
+<td>Complexity
+</td>
+<td>Linear.
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign</span><span class="br0">(</span>i, j<span class="br0">)</span></span></span>
+</td>
+<td rowspan="2"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Effect
+</td>
+<td>Replaces elements in <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> with a copy of <span style="display: inline-block;"><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>, </code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code></span>.
+<ul><li> Invalidates all references, pointers and iterators referring to the elements of <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>.
+</li><li> Each iterator in <span style="display: inline-block;"><code>[</code><span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span><code>, </code><span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span><code>)</code></span> is dereferenced exactly once.
+</li></ul>
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<ul><li> <code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>i</span></span>.
+</li><li> <code>T</code> is assignable from <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>i</span></span>.
+</li></ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+<ul><li> <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> and <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span> are not in <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>.
+</li></ul>
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign_range</span><span class="br0">(</span>rg<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx23">(since C++23)</span>
+</td>
+<td rowspan="2"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Effect
+</td>
+<td>Replaces elements in <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> with a copy of each element in <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span>.
+<ul><li> If <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../concepts/assignable_from.html"><span class="kw2960">std::<span class="me2">assignable_from</span></span></a></span><br><code>    </code><span class="mw-geshi cpp source-cpp"><span class="sy1">&lt;</span>T<span class="sy3">&amp;</span>, <a href="../ranges/range_reference_t.html"><span class="kw2913">ranges::<span class="me2">range_reference_t</span></span></a><span class="sy1">&lt;</span>R<span class="sy1">&gt;&gt;</span></span></span> is not modeled, the program is ill-formed.
+</li><li> Invalidates all references, pointers and iterators referring to the elements of <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span>.
+</li><li> Each iterator in the range <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> is dereferenced exactly once.
+</li></ul>
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<ul><li> <code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../ranges/begin.html"><span class="kw2900">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span>.
+</li><li> <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> and <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> do not overlap.
+</li></ul>
+</td></tr>
+<tr>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign</span><span class="br0">(</span>il<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td colspan="2">Equivalent to <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign</span><span class="br0">(</span>il.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, il.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">assign</span><span class="br0">(</span>n, t<span class="br0">)</span></span></span>
+</td>
+<td rowspan="2"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Effect
+</td>
+<td>Replaces elements in <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> with <span class="t-c"><span class="mw-geshi cpp source-cpp">n</span></span> copies of <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span>.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<p><code>T</code> is <a href="CopyInsertable.html" title="cpp/named req/CopyInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyInsertable</span></a> into <code>C</code> and <a href="CopyAssignable.html" title="cpp/named req/CopyAssignable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyAssignable</span></a>.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+</td></tr>
+<tr style="position: sticky; top: 0;">
+<th colspan="4" style="font-size: 16px; line-height: 16px;">    Extra operations<sup id="cite_ref-3" class="reference"><a href="SequenceContainer.html#cite_note-3">[3]</a></sup><br><span style="font-weight: normal;"><span style="font-size:0.7em; line-height:130%">(only required for specified sequence containers, omitting <code>std::</code>)</span></span>
+</th></tr>
+<tr>
+<th>Expression
+</th>
+<th> Type 
+</th>
+<th colspan="2">Semantics
+</th></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">front</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td>
+<td rowspan="2"><code>Ref</code>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/array.html" title="cpp/container/array">array</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a>, <a href="../container/forward_list.html" title="cpp/container/forward list">forward_list</a></code>
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">cv.<span class="me1">front</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td>
+<td rowspan="2"><code>CRef</code>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/array.html" title="cpp/container/array">array</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a>, <a href="../container/forward_list.html" title="cpp/container/forward list">forward_list</a></code>
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span>cv.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">back</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td>
+<td rowspan="2"><code>Ref</code>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/array.html" title="cpp/container/array">array</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a></code>
+</td></tr>
+<tr>
+<td colspan="2">Equivalent to <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span> tmp <span class="sy1">=</span> v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="sy2">--</span>tmp<span class="sy4">;</span> <span class="kw1">return</span> <span class="sy2">*</span>tmp<span class="sy4">;</span></span></span><sup id="cite_ref-4" class="reference"><a href="SequenceContainer.html#cite_note-4">[4]</a></sup>.
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">cv.<span class="me1">back</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td>
+<td rowspan="2"><code>CRef</code>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/array.html" title="cpp/container/array">array</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a></code>
+</td></tr>
+<tr>
+<td colspan="2">Equivalent to <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw4">auto</span> tmp <span class="sy1">=</span> cv.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="sy4">;</span> <span class="sy2">--</span>tmp<span class="sy4">;</span> <span class="kw1">return</span> <span class="sy2">*</span>tmp<span class="sy4">;</span></span></span><sup id="cite_ref-5" class="reference"><a href="SequenceContainer.html#cite_note-5">[5]</a></sup>.
+</td></tr>
+<tr>
+<td rowspan="4"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">emplace_front</span><span class="br0">(</span>args<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td rowspan="4"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a>, <a href="../container/forward_list.html" title="cpp/container/forward list">forward_list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Prepends an object of type <code>T</code> constructed with <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../utility/forward.html"><span class="kw1125">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span>.
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">front</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span>.
+</td></tr>
+<tr>
+<td rowspan="4"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">emplace_back</span><span class="br0">(</span>args<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td rowspan="4"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Appends an object of type <code>T</code> constructed with <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="../utility/forward.html"><span class="kw1125">std::<span class="me2">forward</span></span></a><span class="sy1">&lt;</span>Args<span class="sy1">&gt;</span><span class="br0">(</span>args<span class="br0">)</span>...</span></span>.
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">back</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp">args</span></span>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">push_front</span><span class="br0">(</span>t<span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a>, <a href="../container/forward_list.html" title="cpp/container/forward list">forward_list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Prepends a copy of <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span>.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<p><code>T</code> is <a href="CopyInsertable.html" title="cpp/named req/CopyInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyInsertable</span></a> into <code>C</code>.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">push_front</span><span class="br0">(</span>rv<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a>, <a href="../container/forward_list.html" title="cpp/container/forward list">forward_list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Prepends a copy of <span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span>, possibly using move semantics.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="MoveInsertable.html" title="cpp/named req/MoveInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">MoveInsertable</span></a> into <code>C</code>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">prepend_range</span><span class="br0">(</span>rg<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx23">(since C++23)</span>
+</td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a>, <a href="../container/forward_list.html" title="cpp/container/forward list">forward_list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Inserts<sup id="cite_ref-range_6-0" class="reference"><a href="SequenceContainer.html#cite_note-range-6">[6]</a></sup> copies of elements in <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> before <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span></span></span>.
+<ul><li> Each iterator in the range <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> is dereferenced exactly once.
+</li></ul>
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../ranges/begin.html"><span class="kw2900">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">push_back</span><span class="br0">(</span>t<span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Appends a copy of <span class="t-c"><span class="mw-geshi cpp source-cpp">t</span></span>.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<p><code>T</code> is <a href="CopyInsertable.html" title="cpp/named req/CopyInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CopyInsertable</span></a> into <code>C</code>.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">push_back</span><span class="br0">(</span>rv<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Appends a copy of <span class="t-c"><span class="mw-geshi cpp source-cpp">rv</span></span>, possibly using move semantics.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="MoveInsertable.html" title="cpp/named req/MoveInsertable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">MoveInsertable</span></a> into <code>C</code>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">append_range</span><span class="br0">(</span>rg<span class="br0">)</span></span></span><br><span class="t-mark-rev t-since-cxx23">(since C++23)</span>
+</td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Inserts<sup id="cite_ref-range_6-1" class="reference"><a href="SequenceContainer.html#cite_note-range-6">[6]</a></sup> copies of elements in <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> before <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span>.
+<ul><li> Each iterator in the range <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span> is dereferenced exactly once.
+</li></ul>
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><code>T</code> is <a href="EmplaceConstructible.html" title="cpp/named req/EmplaceConstructible"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">EmplaceConstructible</span></a> into <code>C</code> from <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><a href="../ranges/begin.html"><span class="kw2900">ranges::<span class="me2">begin</span></span></a><span class="br0">(</span>rg<span class="br0">)</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">pop_front</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a>, <a href="../container/forward_list.html" title="cpp/container/forward list">forward_list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Destroys the first element.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span></span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">pop_back</span><span class="br0">(</span><span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a>, <a href="../container/list.html" title="cpp/container/list">list</a></code>
+</td></tr>
+<tr>
+<td>Effect
+</td>
+<td>Destroys the last element.
+</td></tr>
+<tr>
+<td>Precondition
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">a.<span class="me1">empty</span><span class="br0">(</span><span class="br0">)</span></span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">false</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">v<span class="br0">[</span>n<span class="br0">]</span></span></span>
+</td>
+<td rowspan="2"><code>Ref</code>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/array.html" title="cpp/container/array">array</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a></code>
+</td></tr>
+<tr>
+<td colspan="2">Equivalent to <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <span class="sy2">*</span><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span><span class="sy4">;</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="2"><span class="t-c"><span class="mw-geshi cpp source-cpp">cv<span class="br0">[</span>n<span class="br0">]</span></span></span>
+</td>
+<td rowspan="2"><code>CRef</code>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/array.html" title="cpp/container/array">array</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a></code>
+</td></tr>
+<tr>
+<td colspan="2">Equivalent to <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw1">return</span> <span class="sy2">*</span><span class="br0">(</span>cv.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span><span class="sy4">;</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">at</span><span class="br0">(</span>n<span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><code>Ref</code>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/array.html" title="cpp/container/array">array</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a></code>
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span></span></span>
+</td></tr>
+<tr>
+<td>Exceptions
+</td>
+<td>Throws <span class="t-lc"><a href="../error/out_of_range.html" title="cpp/error/out of range">std::out_of_range</a></span> if <span class="t-c"><span class="mw-geshi cpp source-cpp">n <span class="sy1">&gt;=</span> v.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>.
+</td></tr>
+<tr>
+<td rowspan="3"><span class="t-c"><span class="mw-geshi cpp source-cpp">cv.<span class="me1">at</span><span class="br0">(</span>n<span class="br0">)</span></span></span>
+</td>
+<td rowspan="3"><code>CRef</code>
+</td>
+<td>Containers
+</td>
+<td><code><a href="../string/basic_string.html" title="cpp/string/basic string">basic_string</a>, <a href="../container/array.html" title="cpp/container/array">array</a>, <a href="../container/vector.html" title="cpp/container/vector">vector</a>, <a href="../container/inplace_vector.html" title="cpp/container/inplace vector">inplace_vector</a>, <a href="../container/deque.html" title="cpp/container/deque">deque</a></code>
+</td></tr>
+<tr>
+<td>Return value
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">*</span><span class="br0">(</span>cv.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> n<span class="br0">)</span></span></span>
+</td></tr>
+<tr>
+<td>Exceptions
+</td>
+<td>Throws <span class="t-lc"><a href="../error/out_of_range.html" title="cpp/error/out of range">std::out_of_range</a></span> if <span class="t-c"><span class="mw-geshi cpp source-cpp">n <span class="sy1">&gt;=</span> cv.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span></span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>.
+</td></tr>
+<tr>
+<th colspan="4">Notes
+</th></tr>
+<tr>
+<td colspan="4"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="SequenceContainer.html#cite_ref-1">↑</a></span> <span class="reference-text">For an expression whose effect is equivalent to some other operations, the conditions of the expressions inside those operations are inherited on top of the conditions listed in the table.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="SequenceContainer.html#cite_ref-2">↑</a></span> <span class="reference-text"><span class="t-lc"><a href="../container/array.html" title="cpp/container/array">std::array</a></span> supports assignment from a <a href="../language/initialization.html" title="cpp/language/initialization">brace-enclosed initializer list</a>, but not from an <span class="t-lc"><a href="../utility/initializer_list.html" title="cpp/utility/initializer list">std::initializer_list</a></span>.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="SequenceContainer.html#cite_ref-3">↑</a></span> <span class="reference-text">All operations below<span class="t-rev-inl t-since-cxx23"><span> except <code>prepend_range</code> and <code>append_range</code></span><span><span class="t-mark-rev t-since-cxx23">(since C++23)</span></span></span> take amortized constant time.</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="SequenceContainer.html#cite_ref-4">↑</a></span> <span class="reference-text">In C++98, <span class="t-c"><span class="mw-geshi cpp source-cpp">tmp</span></span> was declared to have type <code>C::iterator</code>.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="SequenceContainer.html#cite_ref-5">↑</a></span> <span class="reference-text">In C++98, <span class="t-c"><span class="mw-geshi cpp source-cpp">tmp</span></span> was declared to have type <code>C::const_iterator</code>.</span>
+</li>
+<li id="cite_note-range-6"><span class="mw-cite-backlink">↑ <sup><a href="SequenceContainer.html#cite_ref-range_6-0">6.0</a></sup> <sup><a href="SequenceContainer.html#cite_ref-range_6-1">6.1</a></sup></span> <span class="reference-text">Insertion order, relative to order of elements in <span class="t-c"><span class="mw-geshi cpp source-cpp">rg</span></span>, is non-reversing.</span>
+</li>
+</ol>
+</td></tr></table>
+</div>
+<p>Additionally, for every sequence container:
+</p>
+<ul><li> A constructor template that takes two input iterators and the member function template overloads of <code>insert</code>, <code>append</code>, <code>assign</code>, <code>replace</code> that take two input iterators do not participate in overload resolution if the corresponding template argument does not satisfy <a href="InputIterator.html" title="cpp/named req/InputIterator"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">LegacyInputIterator</span></a>.
+</li></ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx17"><td>
+<ul><li> A deduction guide that has either a <a href="InputIterator.html" title="cpp/named req/InputIterator"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">LegacyInputIterator</span></a> or an <code>Allocator</code> template parameter does not participate in overload resolution if the type that does not qualify as an input iterator or an allocator respectively is deduced for that parameter.
+</li></ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx17">(since C++17)</span></td></tr>
+</table>
+<h3><span class="mw-headline" id="Standard_library">Standard library</span></h3>
+<p>The following standard library string types and containers satisfy the <span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">SequenceContainer</span> requirements:
+</p>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../string/basic_string.html" title="cpp/string/basic string"> <span class="t-lines"><span>basic_string</span></span></a></div></div>
+</td>
+<td>  stores and manipulates sequences of characters <br> <span class="t-mark">(class template)</span> </td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/array.html" title="cpp/container/array"> <span class="t-lines"><span>array</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  fixed-sized inplace contiguous array <br> <span class="t-mark">(class template)</span> </td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/vector.html" title="cpp/container/vector"> <span class="t-lines"><span>vector</span></span></a></div></div>
+</td>
+<td>  dynamic contiguous array <br> <span class="t-mark">(class template)</span> </td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/inplace_vector.html" title="cpp/container/inplace vector"> <span class="t-lines"><span>inplace_vector</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26">(C++26)</span></span></span></div></div>
+</td>
+<td>  dynamically-resizable, fixed capacity, inplace contiguous array <br> <span class="t-mark">(class template)</span> </td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/deque.html" title="cpp/container/deque"> <span class="t-lines"><span>deque</span></span></a></div></div>
+</td>
+<td>  double-ended queue <br> <span class="t-mark">(class template)</span> </td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/forward_list.html" title="cpp/container/forward list"> <span class="t-lines"><span>forward_list</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx11">(C++11)</span></span></span></div></div>
+</td>
+<td>  singly-linked list <br> <span class="t-mark">(class template)</span> </td></tr>
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="../container/list.html" title="cpp/container/list"> <span class="t-lines"><span>list</span></span></a></div></div>
+</td>
+<td>  doubly-linked list <br> <span class="t-mark">(class template)</span> </td></tr>
+</table>
+<h4><span class="mw-headline" id="Usage_notes">Usage notes</span></h4>
+<table class="wikitable" style="text-align: center;">
+<tr>
+<th>Container
+</th>
+<th>Pros
+</th>
+<th>Cons
+</th></tr>
+<tr>
+<td><span class="t-lc"><a href="../container/vector.html" title="cpp/container/vector">std::vector</a></span>
+</td>
+<td>Fast access, contiguous storage
+</td>
+<td>Mostly inefficient insertions/deletions
+</td></tr>
+<tr>
+<td><span class="mw-geshi cpp source-cpp"><a href="../container/inplace_vector.html"><span class="kw3363">std::<span class="me2">inplace_vector</span></span></a></span>
+</td>
+<td>Fast access, inplace contiguous storage
+</td>
+<td>Fixed capacity and mostly inefficient insertions/deletions
+</td></tr>
+<tr>
+<td><span class="t-lc"><a href="../container/array.html" title="cpp/container/array">std::array</a></span>
+</td>
+<td>Fast access, inplace contiguous storage
+</td>
+<td>Fixed number of elements and no insertion/deletion
+</td></tr>
+<tr>
+<td><span class="t-lc"><a href="../container/deque.html" title="cpp/container/deque">std::deque</a></span>
+</td>
+<td>Fast access, efficient insertion/deletion at the beginning/end
+</td>
+<td>Inefficient insertion/deletion in the middle of the sequence
+</td></tr>
+<tr>
+<td><span class="t-lc"><a href="../container/list.html" title="cpp/container/list">std::list</a></span><br><span class="t-lc"><a href="../container/forward_list.html" title="cpp/container/forward list">std::forward_list</a></span>
+</td>
+<td>Efficient insertion/deletion in the middle of the sequence
+</td>
+<td>Access is mostly linear-time
+</td></tr></table>
+<h3><span class="mw-headline" id="Defect_reports">Defect reports</span></h3>
+<p>The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>DR
+</th>
+<th>Applied to
+</th>
+<th>Behavior as published
+</th>
+<th>Correct behavior
+</th></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue139">LWG 139</a>
+</td>
+<td>C++98
+</td>
+<td>the optional operations were not required to<br>be implemented for the designated containers
+</td>
+<td>required with amortized time
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue149">LWG 149</a>
+</td>
+<td>C++98
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, t<span class="br0">)</span></span></span> returned <code>Iter</code> while<br><span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, n, t<span class="br0">)</span></span></span> and <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">insert</span><span class="br0">(</span>p, n, t<span class="br0">)</span></span></span> returned <span class="mw-geshi cpp source-cpp"><span class="kw4">void</span></span>
+</td>
+<td>they all return <code>Iter</code>
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue151">LWG 151</a>
+</td>
+<td>C++98
+</td>
+<td><span class="t-c"><span class="mw-geshi cpp source-cpp">q1</span></span> was required to be dereferenceable<sup id="cite_ref-7" class="reference"><a href="SequenceContainer.html#cite_note-7">[1]</a></sup>
+</td>
+<td>it can be non-dereferenceable
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue355">LWG 355</a>
+</td>
+<td>C++98
+</td>
+<td>calling <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">back</span><span class="br0">(</span><span class="br0">)</span></span></span> or <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">pop_back</span><span class="br0">(</span><span class="br0">)</span></span></span> would<br>execute <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">--</span>v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span>, which is dangerous<sup id="cite_ref-8" class="reference"><a href="SequenceContainer.html#cite_note-8">[2]</a></sup>
+</td>
+<td>decrements a copy<br>of <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span> instead
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue589">LWG 589</a>
+</td>
+<td>C++98
+</td>
+<td>the elements that <span class="t-c"><span class="mw-geshi cpp source-cpp">i</span></span> and <span class="t-c"><span class="mw-geshi cpp source-cpp">j</span></span> refer to<br>might not be convertible to <code>C::value_type</code>
+</td>
+<td>they are implicitly<br>convertible to <code>C::value_type</code>
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2194">LWG 2194</a>
+</td>
+<td>C++11
+</td>
+<td><span class="t-lc"><a href="../container/queue.html" title="cpp/container/queue">std::queue</a></span>, <span class="t-lc"><a href="../container/priority_queue.html" title="cpp/container/priority queue">std::priority_queue</a></span> and<br><span class="t-lc"><a href="../container/stack.html" title="cpp/container/stack">std::stack</a></span> were also <span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">SequenceContainer</span>s<sup id="cite_ref-9" class="reference"><a href="SequenceContainer.html#cite_note-9">[3]</a></sup>
+</td>
+<td>they are not <span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">SequenceContainer</span>s
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue2231">LWG 2231</a>
+</td>
+<td>C++11
+</td>
+<td>the complexity requirement of <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">clear</span><span class="br0">(</span><span class="br0">)</span></span></span><br>was mistakenly omitted in C++11
+</td>
+<td>complexity reaffirmed as linear
+</td></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue3927">LWG 3927</a>
+</td>
+<td>C++98
+</td>
+<td><span class="mw-geshi cpp source-cpp">operator<span class="br0">[</span><span class="br0">]</span></span> had no implicit requirement
+</td>
+<td>added the implicit requirement
+</td></tr></table>
+<ol class="references">
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="SequenceContainer.html#cite_ref-7">↑</a></span> <span class="reference-text">It is a defect because it makes the behavior of <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">erase</span><span class="br0">(</span>v.<span class="me1">begin</span><span class="br0">(</span><span class="br0">)</span>, v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span></span></span> undefined is <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> is an empty container.</span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><a href="SequenceContainer.html#cite_ref-8">↑</a></span> <span class="reference-text">If the type of <span class="t-c"><span class="mw-geshi cpp source-cpp">v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span> is a fundamental type, <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="sy2">--</span>v.<span class="me1">end</span><span class="br0">(</span><span class="br0">)</span></span></span> is ill-formed. It is dangerous when the type of <span class="t-c"><span class="mw-geshi cpp source-cpp">v</span></span> is templated, in this case this bug can be difficult to be found.</span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="SequenceContainer.html#cite_ref-9">↑</a></span> <span class="reference-text">They were not documented as <span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">SequenceContainer</span>s in C++98.</span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 18815/1000000
+Preprocessor generated node count: 20399/1000000
+Post‐expand include size: 324954/4194304 bytes
+Template argument size: 77137/4194304 bytes
+Highest expansion depth: 20/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:8994-0!*!0!!en!*!* and timestamp 20250103111847 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    Retrieved from "<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/named_req/SequenceContainer&amp;oldid=178156">https://en.cppreference.com/mwiki/index.php?title=cpp/named_req/SequenceContainer&amp;oldid=178156</a>"                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>Navigation</h5>
+            <ul><li><a href="https://en.cppreference.com/w/cpp/named_req/SequenceContainer">Online version</a></li><li>Offline version retrieved 2025-02-09 16:39.</li></ul></div>
+                        <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> This page was last modified on 4 December 2024, at 17:32.</li>
+                            </ul>
+                    </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../../common/skin_scripts.js"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.gadget.ColiruCompiler","ext.gadget.StandardRevisions","ext.gadget.MathJax"], null, true);
+}</script>
+<script src="../../../common/site_scripts.js"></script>
+<!-- Served in 19.191 secs. -->
+	</body>
+<!-- Cached 20250103111847 -->
+</html>

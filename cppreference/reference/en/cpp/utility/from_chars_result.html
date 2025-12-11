@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>std::from_chars_result - cppreference.com</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.21.2">
+<link rel="shortcut icon" href="../../../common/favicon.ico">
+<link rel="stylesheet" href="../../../common/ext.css">
+<meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="../../../common/site_modules.css">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:472787eddcf4605d11de8c7ef047234f */</style>
+
+<script src="../../../common/startup_scripts.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/utility/from_chars_result","wgTitle":"cpp/utility/from chars result","wgCurRevisionId":179104,"wgArticleId":21927,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"cpp/utility/from_chars_result","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ColiruCompiler":1,"gadget-StandardRevisions":1,"gadget-MathJax":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-js:7:173cd59b4efc63a37dd7498667b0fea2 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_utility_from_chars_result skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <!-- /header -->
+        <!-- content -->
+<div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HW0LXMYCY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HW0LXMYCY');
+</script>
+                <h1 id="firstHeading" class="firstHeading"><span style="font-size:0.7em; line-height:130%">std::</span>from_chars_result</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">From cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../../cpp.html" title="cpp">cpp</a>‎ | <a href="../utility.html" title="cpp/utility">utility</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="t-navbar" style=""><div class="t-navbar-sep"> </div><div class="t-navbar-head"><a href="../../cpp.html" title="cpp">C++</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+<tr class="t-nv"><td colspan="5"><a href="../compiler_support.html" title="cpp/compiler support">Compiler support</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../freestanding.html" title="cpp/freestanding">Freestanding and hosted</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../language.html" title="cpp/language">Language</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../standard_library.html" title="cpp/standard library">Standard library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../headers.html" title="cpp/header">Standard library headers</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../named_req.html" title="cpp/named req">Named requirements</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../feature_test.html" title="cpp/feature test">Feature test macros</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../utility.html#Language_support" title="cpp/utility">Language support library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../concepts.html" title="cpp/concepts">Concepts library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../error.html" title="cpp/error">Diagnostics library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../memory.html" title="cpp/memory">Memory management library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../meta.html" title="cpp/meta">Metaprogramming library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../utility.html" title="cpp/utility">General utilities library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../container.html" title="cpp/container">Containers library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../iterator.html" title="cpp/iterator">Iterators library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../ranges.html" title="cpp/ranges">Ranges library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../algorithm.html" title="cpp/algorithm">Algorithms library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../string.html" title="cpp/string">Strings library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../text.html" title="cpp/text">Text processing library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../numeric.html" title="cpp/numeric">Numerics library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../chrono.html" title="cpp/chrono">Date and time library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../io.html" title="cpp/io">Input/output library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../filesystem.html" title="cpp/filesystem">Filesystem library</a> <span class="t-mark-rev t-since-cxx17">(C++17)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../atomic.html" title="cpp/thread">Concurrency support library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../experimental/execution.html" title="cpp/execution">Execution support library</a> <span class="t-mark-rev t-since-cxx26">(C++26)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../experimental.html" title="cpp/experimental">Technical specifications</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../symbol_index.html" title="cpp/symbol index">Symbols index</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../links/libs.html" title="cpp/links/libs">External libraries</a></td></tr>
+</table></div><div></div></div></div></div><div class="t-navbar-sep"> </div><div class="t-navbar-head"><a href="../text.html" title="cpp/text">Text processing library</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"><a href="../locale.html" title="cpp/locale">Localization library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../regex.html" title="cpp/regex">Regular expressions library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="format.html" title="cpp/utility/format">Formatting library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv-h2"><td colspan="5"><a href="../text.html#Null-terminated_sequence_utilities" title="cpp/text">Null-terminated sequence utilities</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../string/byte.html" title="cpp/string/byte">Byte strings</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../string/multibyte.html" title="cpp/string/multibyte">Multibyte strings</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="../string/wide.html" title="cpp/string/wide">Wide strings</a></td></tr>
+<tr class="t-nv-h2"><td colspan="5"><a href="../text.html#Primitive_numeric_conversions" title="cpp/text">Primitive numeric conversions</a></td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="to_chars.html" title="cpp/utility/to chars"><span class="t-lines"><span>to_chars</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="to_chars_result.html" title="cpp/utility/to chars result"><span class="t-lines"><span>to_chars_result</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="from_chars.html" title="cpp/utility/from chars"><span class="t-lines"><span>from_chars</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><strong class="selflink"><span class="t-lines"><span>from_chars_result</span></span></strong></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="chars_format.html" title="cpp/utility/chars format"><span class="t-lines"><span>chars_format</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+</table></div></td></tr>
+<tr class="t-nv-h2"><td colspan="5"><a href="../text.html#Text_encoding_identifications" title="cpp/text">Text encoding identifications</a></td></tr>
+<tr class="t-nv-col-table"><td><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="../locale/text_encoding.html" title="cpp/text/text encoding"><span class="t-lines"><span>text_encoding</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx26">(C++26)</span></span></span></div></div></td></tr>
+</table></div></td></tr>
+</table></div><div></div></div></div></div><div class="t-navbar-sep"> </div></div>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dsc-header">
+<td> <div>Defined in header <code><a href="../header/charconv.html" title="cpp/header/charconv">&lt;charconv&gt;</a></code>
+ </div></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl t-since-cxx17">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">struct</span> from_chars_result<span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td> <span class="t-mark-rev t-since-cxx17">(since C++17)</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<p><code>std::from_chars_result</code> is the return type of <a href="from_chars.html" title="cpp/utility/from chars"><tt>std::from_chars</tt></a>. It has no base classes, and only has the following members.
+</p>
+<h3><span class="mw-headline" id="Data_members">Data members</span></h3>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-hitem">
+<td> Member name
+</td>
+<td> Definition
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><span class="t-lines"><span>ptr</span></span></div></div>
+</td>
+<td>  a pointer of type <span class="mw-geshi cpp source-cpp"><span class="kw4">const</span> <span class="kw4">char</span><span class="sy2">*</span></span> <br> <span class="t-mark">(public member object)</span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><span class="t-lines"><span>ec</span></span></div></div>
+</td>
+<td>  an error code of type <span class="t-lc"><a href="../error/errc.html" title="cpp/error/errc">std::errc</a></span> <br> <span class="t-mark">(public member object)</span>
+</td></tr>
+
+</table>
+<h3><span class="mw-headline" id="Member_and_friend_functions">Member and friend functions</span></h3>
+<div class="t-member">
+<h2> <span class="mw-headline" id="operator.3D.3D.28std::from_chars_result.29">operator==<span style="font-size:0.7em; line-height:130%">(std::from_chars_result)</span></span></h2>
+<table class="t-dcl-begin"><tbody>
+
+<tr class="t-dcl t-since-cxx20">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">friend</span> <span class="kw4">bool</span> operator<span class="sy1">==</span><span class="br0">(</span> <span class="kw4">const</span> from_chars_result<span class="sy3">&amp;</span>,<br>
+                        <span class="kw4">const</span> from_chars_result<span class="sy3">&amp;</span> <span class="br0">)</span> <span class="sy1">=</span> <span class="kw1">default</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td> <span class="t-mark-rev t-since-cxx20">(since C++20)</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<p>Compares the two arguments using <a href="../language/default_comparisons.html" title="cpp/language/default comparisons">default comparisons</a> (which uses <span class="mw-geshi cpp source-cpp">operator<span class="sy1">==</span></span> to compare <code>ptr</code> and <code>ec</code> respectively).
+</p><p>This function  is not visible to ordinary <a href="../language/unqualified_lookup.html" title="cpp/language/unqualified lookup">unqualified</a> or <a href="../language/qualified_lookup.html" title="cpp/language/qualified lookup">qualified lookup</a>, and can only be found by <a href="../language/adl.html" title="cpp/language/adl">argument-dependent lookup</a> when std::from_chars_result is an associated class of the arguments.
+</p><p>The <code>!=</code> operator is <a href="../language/default_comparisons.html#Other_defaulted_comparison_operators" title="cpp/language/default comparisons">synthesized</a> from <code>operator==</code>.
+</p>
+</div>
+<div class="t-member">
+<h2> <span class="mw-headline" id="operator_bool">operator bool</span></h2>
+<table class="t-dcl-begin"><tbody>
+
+<tr class="t-dcl t-since-cxx26">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw4">constexpr</span> <span class="kw1">explicit</span> operator <span class="kw4">bool</span><span class="br0">(</span><span class="br0">)</span> <span class="kw4">const</span> <span class="kw1">noexcept</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td> <span class="t-mark-rev t-since-cxx26">(since C++26)</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<p>Checks whether the conversion is successful. Returns <span class="t-c"><span class="mw-geshi cpp source-cpp">ec <span class="sy1">==</span> <a href="../error/errc.html"><span class="kw884">std::<span class="me2">errc</span></span></a><span class="br0">{</span><span class="br0">}</span></span></span>.
+</p>
+</div>
+<h3><span class="mw-headline" id="Notes">Notes</span></h3>
+<table class="wikitable ftm-begin ftm-has-value">
+
+<tr>
+<th><a href="feature_test.html" title="cpp/utility/feature test">Feature-test</a> macro
+</th>
+<th><abbr title="The year/month in which the feature was adopted. The hyperlink under each value opens a compiler support page with entry for given feature.">Value</abbr>
+</th>
+<th><abbr title="Standard in which the feature is introduced; DR means defect report against that revision">Std</abbr>
+</th>
+<th>Feature
+</th></tr>
+<tr>
+<td rowspan="2"><a href="../feature_test.html#cpp_lib_to_chars" title="cpp/feature test"><code>__cpp_lib_to_chars</code></a></td>
+<td><a href="../compiler_support/17.html#cpp_lib_to_chars_201611L" title="cpp/compiler support/17"><code>201611L</code></a></td>
+<td><span class="t-mark">(C++17)</span></td>
+<td>Elementary string conversions (<a href="to_chars.html" title="cpp/utility/to chars"><tt>std::to_chars</tt></a>, <a href="from_chars.html" title="cpp/utility/from chars"><tt>std::from_chars</tt></a>)
+</td></tr>
+<tr>
+<td><a href="../compiler_support/26.html#cpp_lib_to_chars_202306L" title="cpp/compiler support/26"><code>202306L</code></a></td>
+<td><span class="t-mark">(C++26)</span></td>
+<td>Testing for success or failure of <a href="../header/charconv.html" title="cpp/header/charconv"><tt>&lt;charconv&gt;</tt></a> functions
+</td></tr></table>
+<h3><span class="mw-headline" id="Example">Example</span></h3>
+<div class="t-example"><div class="t-example-live-link"><div class="coliru-btn coliru-btn-run-init">Run this code</div></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="cpp source-cpp"><pre class="de1"><span class="co2">#include &lt;cassert&gt;</span>
+<span class="co2">#include &lt;charconv&gt;</span>
+<span class="co2">#include &lt;iomanip&gt;</span>
+<span class="co2">#include &lt;iostream&gt;</span>
+<span class="co2">#include &lt;optional&gt;</span>
+<span class="co2">#include &lt;string_view&gt;</span>
+<span class="co2">#include &lt;system_error&gt;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">for</span> <span class="br0">(</span><a href="../string/basic_string_view.html"><span class="kw1256">std::<span class="me2">string_view</span></span></a> <span class="kw4">const</span> str <span class="sy4">:</span> <span class="br0">{</span><span class="st0">"1234"</span>, <span class="st0">"15 foo"</span>, <span class="st0">"bar"</span>, <span class="st0">" 42"</span>, <span class="st0">"5000000000"</span><span class="br0">}</span><span class="br0">)</span>
+    <span class="br0">{</span>
+        <a href="../io/cout.html"><span class="kw1775">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"String: "</span> <span class="sy1">&lt;&lt;</span> <a href="../io/manip/quoted.html"><span class="kw1819">std::<span class="me2">quoted</span></span></a><span class="br0">(</span>str<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">". "</span><span class="sy4">;</span>
+        <span class="kw4">int</span> result<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+        <span class="kw4">auto</span> <span class="br0">[</span>ptr, ec<span class="br0">]</span> <span class="sy1">=</span> <a href="from_chars.html"><span class="kw2656">std::<span class="me2">from_chars</span></span></a><span class="br0">(</span>str.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span>, str.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> str.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span>, result<span class="br0">)</span><span class="sy4">;</span>
+ 
+        <span class="kw1">if</span> <span class="br0">(</span>ec <span class="sy1">==</span> <a href="../error/errc.html"><span class="kw884">std::<span class="me2">errc</span></span></a><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+            <a href="../io/cout.html"><span class="kw1775">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"Result: "</span> <span class="sy1">&lt;&lt;</span> result <span class="sy1">&lt;&lt;</span> <span class="st0">", ptr -&gt; "</span> <span class="sy1">&lt;&lt;</span> <a href="../io/manip/quoted.html"><span class="kw1819">std::<span class="me2">quoted</span></span></a><span class="br0">(</span>ptr<span class="br0">)</span> <span class="sy1">&lt;&lt;</span> <span class="st0">'<span class="es1">\n</span>'</span><span class="sy4">;</span>
+        <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span>ec <span class="sy1">==</span> <a href="../error/errc.html"><span class="kw913">std::<span class="me2">errc</span><span class="sy4">::</span><span class="me2">invalid_argument</span></span></a><span class="br0">)</span>
+            <a href="../io/cout.html"><span class="kw1775">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"This is not a number.<span class="es1">\n</span>"</span><span class="sy4">;</span>
+        <span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">(</span>ec <span class="sy1">==</span> <a href="../error/errc.html"><span class="kw952">std::<span class="me2">errc</span><span class="sy4">::</span><span class="me2">result_out_of_range</span></span></a><span class="br0">)</span>
+            <a href="../io/cout.html"><span class="kw1775">std::<span class="me2">cout</span></span></a> <span class="sy1">&lt;&lt;</span> <span class="st0">"This number is larger than an int.<span class="es1">\n</span>"</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="co1">// C++23's constexpr from_char demo / C++26's operator bool() demo:</span>
+    <span class="kw4">auto</span> to_int <span class="sy1">=</span> <span class="br0">[</span><span class="br0">]</span><span class="br0">(</span><a href="../string/basic_string_view.html"><span class="kw1256">std::<span class="me2">string_view</span></span></a> s<span class="br0">)</span> <span class="sy2">-</span><span class="sy1">&gt;</span> <a href="optional.html"><span class="kw1082">std::<span class="me2">optional</span></span></a><span class="sy1">&lt;</span><span class="kw4">int</span><span class="sy1">&gt;</span>
+    <span class="br0">{</span>
+        <span class="kw4">int</span> value<span class="br0">{</span><span class="br0">}</span><span class="sy4">;</span>
+<span class="co2">#if __cpp_lib_to_chars &gt;= 202306L</span>
+        <span class="kw1">if</span> <span class="br0">(</span><a href="from_chars.html"><span class="kw2656">std::<span class="me2">from_chars</span></span></a><span class="br0">(</span>s.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span>, s.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> s.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span>, value<span class="br0">)</span><span class="br0">)</span>
+<span class="co2">#else</span>
+        <span class="kw1">if</span> <span class="br0">(</span><a href="from_chars.html"><span class="kw2656">std::<span class="me2">from_chars</span></span></a><span class="br0">(</span>s.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span>, s.<span class="me1">data</span><span class="br0">(</span><span class="br0">)</span> <span class="sy2">+</span> s.<span class="me1">size</span><span class="br0">(</span><span class="br0">)</span>, value<span class="br0">)</span>.<span class="me1">ec</span> <span class="sy1">==</span> <a href="../error/errc.html"><span class="kw884">std::<span class="me2">errc</span></span></a><span class="br0">{</span><span class="br0">}</span><span class="br0">)</span>
+<span class="co2">#endif</span>
+            <span class="kw1">return</span> value<span class="sy4">;</span>
+        <span class="kw1">else</span>
+            <span class="kw1">return</span> <a href="optional/nullopt.html"><span class="kw1086">std::<span class="me2">nullopt</span></span></a><span class="sy4">;</span>
+    <span class="br0">}</span><span class="sy4">;</span>
+ 
+    <a href="../error/assert.html"><span class="kw778">assert</span></a><span class="br0">(</span>to_int<span class="br0">(</span><span class="st0">"42"</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">42</span><span class="br0">)</span><span class="sy4">;</span>
+    <a href="../error/assert.html"><span class="kw778">assert</span></a><span class="br0">(</span>to_int<span class="br0">(</span><span class="st0">"foo"</span><span class="br0">)</span> <span class="sy1">==</span> <a href="optional/nullopt.html"><span class="kw1086">std::<span class="me2">nullopt</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#if __cpp_lib_constexpr_charconv and __cpp_lib_optional &gt;= 202106</span>
+    static_assert<span class="br0">(</span>to_int<span class="br0">(</span><span class="st0">"42"</span><span class="br0">)</span> <span class="sy1">==</span> <span class="nu0">42</span><span class="br0">)</span><span class="sy4">;</span>
+    static_assert<span class="br0">(</span>to_int<span class="br0">(</span><span class="st0">"foo"</span><span class="br0">)</span> <span class="sy1">==</span> <a href="optional/nullopt.html"><span class="kw1086">std::<span class="me2">nullopt</span></span></a><span class="br0">)</span><span class="sy4">;</span>
+<span class="co2">#endif</span>
+<span class="br0">}</span></pre></div></div>
+<p>Output:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="text source-text"><pre class="de1">String: "1234". Result: 1234, ptr -&gt; ""
+String: "15 foo". Result: 15, ptr -&gt; " foo"
+String: "bar". This is not a number.
+String: " 42". This is not a number.
+String: "5000000000". This number is larger than an int.</pre></div></div> 
+</div>
+<h3><span class="mw-headline" id="See_also">See also</span></h3>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc">
+<td>  <div class="t-dsc-member-div"><div><a href="from_chars.html" title="cpp/utility/from chars"> <span class="t-lines"><span>from_chars</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div>
+</td>
+<td>  converts a character sequence to an integer or floating-point value <br> <span class="t-mark">(function)</span> </td></tr>
+</table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 2592/1000000
+Preprocessor generated node count: 9613/1000000
+Post‐expand include size: 63204/4194304 bytes
+Template argument size: 16865/4194304 bytes
+Highest expansion depth: 20/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:21927-0!*!0!!en!*!* and timestamp 20250105132607 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    Retrieved from "<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/utility/from_chars_result&amp;oldid=179104">https://en.cppreference.com/mwiki/index.php?title=cpp/utility/from_chars_result&amp;oldid=179104</a>"                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>Navigation</h5>
+            <ul><li><a href="https://en.cppreference.com/w/cpp/utility/from_chars_result">Online version</a></li><li>Offline version retrieved 2025-02-09 16:39.</li></ul></div>
+                        <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> This page was last modified on 2 January 2025, at 21:56.</li>
+                            </ul>
+                    </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../../common/skin_scripts.js"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.gadget.ColiruCompiler","ext.gadget.StandardRevisions","ext.gadget.MathJax"], null, true);
+}</script>
+<script src="../../../common/site_scripts.js"></script>
+<!-- Served in 1.529 secs. -->
+	</body>
+<!-- Cached 20250105132607 -->
+</html>

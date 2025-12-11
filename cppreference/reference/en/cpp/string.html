@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>Strings library - cppreference.com</title>
+<meta charset="UTF-8">
+<meta name="generator" content="MediaWiki 1.21.2">
+<link rel="shortcut icon" href="../../common/favicon.ico">
+<link rel="stylesheet" href="../../common/ext.css">
+<meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="../../common/site_modules.css">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}#toc{display:none}.editsection{display:none}
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-css:7:472787eddcf4605d11de8c7ef047234f */</style>
+
+<script src="../../common/startup_scripts.js"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"cpp/string","wgTitle":"cpp/string","wgCurRevisionId":179902,"wgArticleId":1388,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"cpp/string","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":0,"showtoolbar":1,"skin":"cppreference2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"gadget-ColiruCompiler":1,"gadget-StandardRevisions":1,"gadget-MathJax":1});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});;},{},{});
+/* cache key: mwiki1-mwiki_en_:resourceloader:filter:minify-js:7:173cd59b4efc63a37dd7498667b0fea2 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-cpp {line-height: normal;}
+.source-cpp li, .source-cpp pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for cpp
+ * CSS class: source-cpp, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.cpp.source-cpp .de1, .cpp.source-cpp .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.cpp.source-cpp  {font-family:monospace;}
+.cpp.source-cpp .imp {font-weight: bold; color: red;}
+.cpp.source-cpp li, .cpp.source-cpp .li1 {font-weight: normal; vertical-align:top;}
+.cpp.source-cpp .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.cpp.source-cpp .li2 {font-weight: bold; vertical-align:top;}
+.cpp.source-cpp .kw1 {color: #0000dd;}
+.cpp.source-cpp .kw2 {color: #0000ff;}
+.cpp.source-cpp .kw3 {color: #0000dd;}
+.cpp.source-cpp .kw4 {color: #0000ff;}
+.cpp.source-cpp .co1 {color: #909090;}
+.cpp.source-cpp .co2 {color: #339900;}
+.cpp.source-cpp .coMULTI {color: #ff0000; font-style: italic;}
+.cpp.source-cpp .es0 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es1 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es2 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es3 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es4 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .es5 {color: #008000; font-weight: bold;}
+.cpp.source-cpp .br0 {color: #008000;}
+.cpp.source-cpp .sy0 {color: #008000;}
+.cpp.source-cpp .sy1 {color: #000080;}
+.cpp.source-cpp .sy2 {color: #000040;}
+.cpp.source-cpp .sy3 {color: #000040;}
+.cpp.source-cpp .sy4 {color: #008080;}
+.cpp.source-cpp .st0 {color: #008000;}
+.cpp.source-cpp .nu0 {color: #000080;}
+.cpp.source-cpp .nu6 {color: #000080;}
+.cpp.source-cpp .nu8 {color: #000080;}
+.cpp.source-cpp .nu12 {color: #000080;}
+.cpp.source-cpp .nu16 {color:#000080;}
+.cpp.source-cpp .nu17 {color:#000080;}
+.cpp.source-cpp .nu18 {color:#000080;}
+.cpp.source-cpp .nu19 {color:#000080;}
+.cpp.source-cpp .ln-xtra, .cpp.source-cpp li.ln-xtra, .cpp.source-cpp div.ln-xtra {background-color: #ffc;}
+.cpp.source-cpp span.xtra { display:block; }
+
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/mwiki/skins/cppreference2/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cpp_string skin-cppreference2 action-view cpp-navbar">
+        <!-- header -->
+        <!-- /header -->
+        <!-- content -->
+<div id="cpp-content-base">
+            <div id="content">
+                <a id="top"></a>
+                <div id="mw-js-message" style="display:none;"></div>
+                                <!-- firstHeading -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HW0LXMYCY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HW0LXMYCY');
+</script>
+                <h1 id="firstHeading" class="firstHeading">Strings library</h1>
+                <!-- /firstHeading -->
+                <!-- bodyContent -->
+                <div id="bodyContent">
+                                        <!-- tagline -->
+                    <div id="siteSub">From cppreference.com</div>
+                    <!-- /tagline -->
+                                        <!-- subtitle -->
+                    <div id="contentSub"><span class="subpages">&lt; <a href="../cpp.html" title="cpp">cpp</a></span></div>
+                    <!-- /subtitle -->
+                                                            <!-- bodycontent -->
+                    <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="t-navbar" style=""><div class="t-navbar-sep"> </div><div class="t-navbar-head"><a href="../cpp.html" title="cpp">C++</a><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="line-height:1.1em;">
+<tr class="t-nv"><td colspan="5"><a href="compiler_support.html" title="cpp/compiler support">Compiler support</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="freestanding.html" title="cpp/freestanding">Freestanding and hosted</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="language.html" title="cpp/language">Language</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="standard_library.html" title="cpp/standard library">Standard library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="headers.html" title="cpp/header">Standard library headers</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="named_req.html" title="cpp/named req">Named requirements</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="feature_test.html" title="cpp/feature test">Feature test macros</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="utility.html#Language_support" title="cpp/utility">Language support library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="concepts.html" title="cpp/concepts">Concepts library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="error.html" title="cpp/error">Diagnostics library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="memory.html" title="cpp/memory">Memory management library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="meta.html" title="cpp/meta">Metaprogramming library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="utility.html" title="cpp/utility">General utilities library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="container.html" title="cpp/container">Containers library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="iterator.html" title="cpp/iterator">Iterators library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="ranges.html" title="cpp/ranges">Ranges library</a> <span class="t-mark-rev t-since-cxx20">(C++20)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="algorithm.html" title="cpp/algorithm">Algorithms library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><strong class="selflink">Strings library</strong></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="text.html" title="cpp/text">Text processing library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="numeric.html" title="cpp/numeric">Numerics library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="chrono.html" title="cpp/chrono">Date and time library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="io.html" title="cpp/io">Input/output library</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="filesystem.html" title="cpp/filesystem">Filesystem library</a> <span class="t-mark-rev t-since-cxx17">(C++17)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="atomic.html" title="cpp/thread">Concurrency support library</a> <span class="t-mark-rev t-since-cxx11">(C++11)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="experimental/execution.html" title="cpp/execution">Execution support library</a> <span class="t-mark-rev t-since-cxx26">(C++26)</span></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="experimental.html" title="cpp/experimental">Technical specifications</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="symbol_index.html" title="cpp/symbol index">Symbols index</a></td></tr>
+<tr class="t-nv"><td colspan="5"><a href="links/libs.html" title="cpp/links/libs">External libraries</a></td></tr>
+</table></div><div></div></div></div></div><div class="t-navbar-sep"> </div><div class="t-navbar-head"><strong class="selflink">Strings library</strong><div class="t-navbar-menu"><div><div><table class="t-nv-begin" cellpadding="0" style="">
+<tr class="t-nv-h1"><td colspan="5">Classes</td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="string/basic_string.html" title="cpp/string/basic string"><span class="t-lines"><span>basic_string</span></span></a></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="string/basic_string_view.html" title="cpp/string/basic string view"><span class="t-lines"><span>basic_string_view</span></span></a></div><div><span class="t-lines"><span><span class="t-mark-rev t-since-cxx17">(C++17)</span></span></span></div></div></td></tr>
+<tr class="t-nv"><td colspan="5"><div class="t-nv-ln-table"><div><a href="string/char_traits.html" title="cpp/string/char traits"><span class="t-lines"><span>char_traits</span></span></a></div></div></td></tr>
+</table></div><div></div></div></div></div><div class="t-navbar-sep"> </div></div>
+<h3><span class="mw-headline" id="Characters">Characters</span></h3>
+<p>In the C++ standard library, a <i>character</i> is an object which, when treated sequentially, can represent text.
+</p><p>The term means not only objects of <a href="language/type-id.html" title="cpp/language/type">character types</a>, but also any value that can be represented by a type that provides the definitions specified in the strings library and following libraries:
+</p>
+<ul><li> <a href="locale.html" title="cpp/locale">localization library</a>
+</li><li> <a href="io.html" title="cpp/io">input/output library</a>
+</li></ul>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx11"><td>
+<ul><li> <a href="regex.html" title="cpp/regex">regular expressions library</a>
+</li></ul>
+</td>
+<td><span class="t-mark-rev t-since-cxx11">(since C++11)</span></td></tr>
+</table>
+<p>In the strings library<span class="t-rev-inl t-since-cxx11"><span> and regular expressions library</span><span><span class="t-mark-rev t-since-cxx11">(since C++11)</span></span></span>, a character can be of only <i>char-like types</i>, i.e. those non-array types that satisfy the requirements of 
+<span class="t-rev-inl t-until-cxx20"><span><a href="named_req/PODType.html" title="cpp/named req/PODType"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">PODType</span></a></span><span><span class="t-mark-rev t-until-cxx20">(until C++20)</span></span></span><span class="t-rev-inl t-since-cxx20 t-until-cxx26"><span><a href="named_req/TrivialType.html" title="cpp/named req/TrivialType"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">TrivialType</span></a> and <a href="named_req/StandardLayoutType.html" title="cpp/named req/StandardLayoutType"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">StandardLayoutType</span></a></span><span><span class="t-mark-rev t-since-cxx20">(since C++20)</span><span class="t-mark-rev t-until-cxx26">(until C++26)</span></span></span><span class="t-rev-inl t-since-cxx26"><span><a href="named_req/TriviallyCopyable.html" title="cpp/named req/TriviallyCopyable"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">TriviallyCopyable</span></a> and <a href="named_req/StandardLayoutType.html" title="cpp/named req/StandardLayoutType"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">StandardLayoutType</span></a></span><span><span class="t-mark-rev t-since-cxx26">(since C++26)</span></span></span>.
+</p>
+<table class="t-rev-begin">
+<tr class="t-rev t-since-cxx26"><td>
+<p>For any char-like type <code>T</code>, <span class="t-c"><span class="mw-geshi cpp source-cpp"><a href="types/is_default_constructible.html"><span class="kw536">std::<span class="me2">is_trivially_default_constructible_v</span></span></a><span class="sy1">&lt;</span>T<span class="sy1">&gt;</span></span></span> is <span class="t-c"><span class="mw-geshi cpp source-cpp"><span class="kw2">true</span></span></span>.
+</p>
+</td>
+<td><span class="t-mark-rev t-since-cxx26">(since C++26)</span></td></tr>
+</table>
+<p>Therefore, characters are also referred as <i>char-like objects</i> in the strings library<span class="t-rev-inl t-since-cxx11"><span> and regular expressions library</span><span><span class="t-mark-rev t-since-cxx11">(since C++11)</span></span></span>.
+</p><p>Some standard library components accept <i>character container types</i>. They, too, are types used to represent individual characters. Such types are used for one of the template arguments of <span class="t-lc"><a href="string/char_traits.html" title="cpp/string/char traits">std::char_traits</a></span> and the class templates which use <span class="t-lc"><a href="string/char_traits.html" title="cpp/string/char traits">std::char_traits</a></span>.
+</p>
+<h3><span class="mw-headline" id="Library_components">Library components</span></h3>
+<p>The C++ strings library includes the following components:
+</p>
+<h4><span class="mw-headline" id="Character_traits">Character traits</span></h4>
+<p>Many character-related class templates (such as <span class="t-lc"><a href="string/basic_string.html" title="cpp/string/basic string">std::basic_string</a></span>) need a set of related types and functions to complete the definition of their semantics. These types and functions are provided as a set of member <span class="mw-geshi cpp source-cpp"><span class="kw1">typedef</span></span> names and functions in the template parameter <code>Traits</code> used by each such template. The classes which are able to complete those semantics are <a href="named_req/CharTraits.html" title="cpp/named req/CharTraits"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CharTraits</span></a>.
+</p><p>The string library provides the class template <span class="t-lc"><a href="string/char_traits.html" title="cpp/string/char traits">std::char_traits</a></span> that defines types and functions for <span class="t-lc"><a href="string/basic_string.html" title="cpp/string/basic string">std::basic_string</a></span><span class="t-rev-inl t-since-cxx17"><span> and <span class="t-lc"><a href="string/basic_string_view.html" title="cpp/string/basic string view">std::basic_string_view</a></span></span><span><span class="t-mark-rev t-since-cxx17">(since C++17)</span></span></span>.
+</p><p>The following specializations are defined, all of them satisfy the <a href="named_req/CharTraits.html" title="cpp/named req/CharTraits"><span style="font-family: Georgia, 'DejaVu Serif', serif; font-style:italic">CharTraits</span></a> requirements:
+</p>
+<table class="t-dcl-begin"><tbody>
+<tr class="t-dsc-header">
+<td> <div>Defined in header <code><a href="header/string.html" title="cpp/header/string">&lt;string&gt;</a></code>
+ </div></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span> <span class="kw1">class</span> char_traits<span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl">
+<td class="t-dcl-nopad"> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span> <span class="kw1">class</span> char_traits<span class="sy1">&lt;</span><span class="kw4">wchar_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td class="t-dcl-nopad">  </td>
+</tr>
+<tr class="t-dcl t-since-cxx20">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span> <span class="kw1">class</span> char_traits<span class="sy1">&lt;</span>char8_t<span class="sy1">&gt;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td> <span class="t-mark-rev t-since-cxx20">(since C++20)</span> </td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span> <span class="kw1">class</span> char_traits<span class="sy1">&lt;</span><span class="kw4">char16_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> </td>
+</tr>
+<tr class="t-dcl t-since-cxx11">
+<td> <div><span class="mw-geshi cpp source-cpp"><span class="kw1">template</span><span class="sy1">&lt;&gt;</span> <span class="kw1">class</span> char_traits<span class="sy1">&lt;</span><span class="kw4">char32_t</span><span class="sy1">&gt;</span><span class="sy4">;</span></span></div></td>
+<td class="t-dcl-nopad">  </td>
+<td> <span class="t-mark-rev t-since-cxx11">(since C++11)</span> </td>
+</tr>
+<tr class="t-dcl-sep"><td></td><td></td><td></td></tr>
+</tbody></table>
+<p>When a user-defined character container type for <span class="t-lc"><a href="string/basic_string.html" title="cpp/string/basic string">std::basic_string</a></span><span class="t-rev-inl t-since-cxx17"><span> and <span class="t-lc"><a href="string/basic_string_view.html" title="cpp/string/basic string view">std::basic_string_view</a></span></span><span><span class="t-mark-rev t-since-cxx17">(since C++17)</span></span></span> is used, it is also necessary to provide a corresponding character trait class (which can be a specialization of <span class="t-lc"><a href="string/char_traits.html" title="cpp/string/char traits">std::char_traits</a></span>).
+</p><p><span id="String_classes"></span>
+</p>
+<h4><span class="mw-headline" id="String_classes_.28std::string_etc..29">String classes (<span class="t-lc"><a href="string/basic_string.html" title="cpp/string/basic string">std::string</a></span> etc.)</span></h4>
+<p>The class template <span class="t-lc"><a href="string/basic_string.html" title="cpp/string/basic string">std::basic_string</a></span> generalizes how sequences of characters are manipulated and stored.  String creation, manipulation, and destruction are all handled by a convenient set of class methods and related functions.
+</p><p>Several specializations of <span class="t-lc"><a href="string/basic_string.html" title="cpp/string/basic string">std::basic_string</a></span> are provided for commonly-used types:
+</p>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-header">
+<td colspan="2"> <div>Defined in header <code><a href="header/string.html" title="cpp/header/string">&lt;string&gt;</a></code> </div>
+</td></tr>
+
+<tr class="t-dsc-hitem">
+<td> Type
+</td>
+<td> Definition
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::string</b></code>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string.html"><span class="kw1236">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::wstring</b></code>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string.html"><span class="kw1236">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span><span class="kw4">wchar_t</span><span class="sy1">&gt;</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::u8string</b></code> <span class="t-mark-rev t-since-cxx20">(since C++20)</span>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string.html"><span class="kw1236">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span>char8_t<span class="sy1">&gt;</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::u16string</b></code> <span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string.html"><span class="kw1236">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span><span class="kw4">char16_t</span><span class="sy1">&gt;</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::u32string</b></code> <span class="t-mark-rev t-since-cxx11">(since C++11)</span>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string.html"><span class="kw1236">std::<span class="me2">basic_string</span></span></a><span class="sy1">&lt;</span><span class="kw4">char32_t</span><span class="sy1">&gt;</span></span>
+</td></tr>
+
+</table>
+<p><span id="String_view_classes"></span>
+</p>
+<h4><span class="mw-headline" id="String_view_classes_.28std::string_view_etc..29_.28since_C.2B.2B17.29">String view classes (<span class="t-lc"><a href="string/basic_string_view.html" title="cpp/string/basic string view">std::string_view</a></span> etc.) <span class="t-mark-rev t-since-cxx17">(since C++17)</span></span></h4>
+<p>The class template <span class="t-lc"><a href="string/basic_string_view.html" title="cpp/string/basic string view">std::basic_string_view</a></span> provides a lightweight object that offers read-only access to a string or a part of a string using an interface similar to the interface of <span class="t-lc"><a href="string/basic_string.html" title="cpp/string/basic string">std::basic_string</a></span>.
+</p><p>Several specializations of <span class="t-lc"><a href="string/basic_string_view.html" title="cpp/string/basic string view">std::basic_string_view</a></span> are provided for commonly-used types:
+</p>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc-header">
+<td colspan="2"> <div>Defined in header <code><a href="header/string_view.html" title="cpp/header/string view">&lt;string_view&gt;</a></code> </div>
+</td></tr>
+
+<tr class="t-dsc-hitem">
+<td> Type
+</td>
+<td> Definition
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::string_view</b></code>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string_view.html"><span class="kw1254">std::<span class="me2">basic_string_view</span></span></a><span class="sy1">&lt;</span><span class="kw4">char</span><span class="sy1">&gt;</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::wstring_view</b></code>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string_view.html"><span class="kw1254">std::<span class="me2">basic_string_view</span></span></a><span class="sy1">&lt;</span><span class="kw4">wchar_t</span><span class="sy1">&gt;</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::u8string_view</b></code> <span class="t-mark-rev t-since-cxx20">(since C++20)</span>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string_view.html"><span class="kw1254">std::<span class="me2">basic_string_view</span></span></a><span class="sy1">&lt;</span>char8_t<span class="sy1">&gt;</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::u16string_view</b></code>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string_view.html"><span class="kw1254">std::<span class="me2">basic_string_view</span></span></a><span class="sy1">&lt;</span><span class="kw4">char16_t</span><span class="sy1">&gt;</span></span>
+</td></tr>
+
+
+<tr class="t-dsc">
+<td> <code><b>std::u32string_view</b></code>
+</td>
+<td> <span class="mw-geshi cpp source-cpp"><a href="string/basic_string_view.html"><span class="kw1254">std::<span class="me2">basic_string_view</span></span></a><span class="sy1">&lt;</span><span class="kw4">char32_t</span><span class="sy1">&gt;</span></span>
+</td></tr>
+
+</table>
+<h3><span class="mw-headline" id="Relevant_libraries">Relevant libraries</span></h3>
+<p>The <a href="text.html" title="cpp/text">text processing library</a> provides support for localizations, string conversions (e.g. <a href="locale/toupper.html" title="cpp/locale/toupper"><tt>std::toupper</tt></a>), character classification functions (e.g. <a href="locale/isspace.html" title="cpp/locale/isspace"><tt>std::isspace</tt></a>), and text encoding recognition (<a href="locale/text_encoding.html" title="cpp/text/text encoding"><tt>std::text_encoding</tt></a>).
+</p>
+<h3><span class="mw-headline" id="Defect_reports">Defect reports</span></h3>
+<p>The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+</p>
+<table class="dsctable" style="font-size:0.8em">
+<tr>
+<th>DR
+</th>
+<th>Applied to
+</th>
+<th>Behavior as published
+</th>
+<th>Correct behavior
+</th></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="https://cplusplus.github.io/LWG/issue1170">LWG 1170</a>
+</td>
+<td>C++98
+</td>
+<td>char-like types could be array types
+</td>
+<td>prohibited
+</td></tr></table>
+<h3><span class="mw-headline" id="See_also">See also</span></h3>
+<table class="t-dsc-begin">
+
+<tr class="t-dsc">
+<td colspan="2"> <div class="t-dsc-see"><span><a href="../c/string.html" title="c/string">C documentation</a></span> for <span class=""><span>Strings library</span></span></div>
+</td></tr>
+
+</table>
+
+<!-- 
+NewPP limit report
+Preprocessor visited node count: 3064/1000000
+Preprocessor generated node count: 8660/1000000
+Post‐expand include size: 47403/4194304 bytes
+Template argument size: 8995/4194304 bytes
+Highest expansion depth: 15/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mwiki1-mwiki_en_:pcache:idhash:1388-0!*!0!!en!*!* and timestamp 20250128191454 -->
+</div>                    <!-- /bodycontent -->
+                                        <!-- printfooter -->
+                    <div class="printfooter">
+                    Retrieved from "<a href="https://en.cppreference.com/mwiki/index.php?title=cpp/string&amp;oldid=179902">https://en.cppreference.com/mwiki/index.php?title=cpp/string&amp;oldid=179902</a>"                    </div>
+                    <!-- /printfooter -->
+                                                            <!-- catlinks -->
+                    <!-- /catlinks -->
+                                                            <div class="visualClear"></div>
+                    <!-- debughtml -->
+                                        <!-- /debughtml -->
+                </div>
+                <!-- /bodyContent -->
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- footer -->
+        <div id="cpp-footer-base" class="noprint">
+            <div id="footer">
+                        <div id="cpp-navigation">
+            <h5>Navigation</h5>
+            <ul><li><a href="https://en.cppreference.com/w/cpp/string">Online version</a></li><li>Offline version retrieved 2025-02-09 16:39.</li></ul></div>
+                        <ul id="footer-info">
+                                    <li id="footer-info-lastmod"> This page was last modified on 28 January 2025, at 11:14.</li>
+                            </ul>
+                    </div>
+        </div>
+        <!-- /footer -->
+        <script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script src="../../common/skin_scripts.js"></script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.hidpi","ext.gadget.ColiruCompiler","ext.gadget.StandardRevisions","ext.gadget.MathJax"], null, true);
+}</script>
+<script src="../../common/site_scripts.js"></script>
+<!-- Served in 0.035 secs. -->
+	</body>
+<!-- Cached 20250128191820 -->
+</html>
