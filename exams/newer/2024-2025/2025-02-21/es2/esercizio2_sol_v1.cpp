@@ -97,3 +97,4 @@ void decode(const char *str, int size, Key *keyboard) {
 }
 
 // Inserire qui sopra la definizione della funzione decode
+

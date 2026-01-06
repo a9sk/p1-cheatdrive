@@ -12,7 +12,7 @@
 (setq scroll-conservatively 10000)
 
 (global-display-line-numbers-mode 1)
-(setq display-line-numbers-type 'relative)
+;; (setq display-line-numbers-type 'relative)
 
 (show-paren-mode 1)
 (electric-pair-mode 1)
@@ -46,7 +46,7 @@
       c-basic-offset 4)
 
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default tab-width 2)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -57,3 +57,9 @@
   (set-face-attribute 'default nil
                       :family "DejaVu Sans Mono"
                       :height 200))
+
+(global-set-key (kbd "<backtab>")
+		(lambda () (interactive)
+		  (if (use-region-p)
+		      (indent-rigidly (region-beginning) (region-end) -2)
+		    (indent-for-tab-command))))

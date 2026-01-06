@@ -1,8 +1,0 @@
-7 4
-a & c d
-f g h j
-k l + n
-q r s t
-a w 1 t
-z p n !
-0 4 r %
