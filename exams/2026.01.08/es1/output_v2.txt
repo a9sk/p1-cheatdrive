@@ -1,0 +1,31 @@
+computer > ./a.out
+Tassi di occupazione:
+Giorno: 1: 0.642857 920
+Giorno: 2: 0.75 910
+Giorno: 3: 0.857143 660
+Giorno: 4: 0.535714 1200
+Giorno: 5: 0.785714 500
+Giorno: 6: 0.357143 1860
+Giorno: 7: 0.642857 1290
+Giorno: 8: 0.642857 1330
+Giorno: 9: 0.5 1550
+Giorno: 10: 0.464286 1840
+Giorno: 11: 0.464286 1710
+Giorno: 12: 0.535714 1610
+Giorno: 13: 0.392857 1870
+Giorno: 14: 0.392857 1710
+Giorno: 15: 0.285714 1700
+Giorno: 16: 0.607143 1960
+Giorno: 17: 0.535714 1420
+Giorno: 18: 0.392857 1710
+Giorno: 19: 0.5 1300
+Giorno: 20: 0.392857 1670
+Giorno: 21: 0.428571 1710
+Giorno: 22: 0.535714 1800
+Giorno: 23: 0.821429 540
+Giorno: 24: 0.571429 1170
+Giorno: 25: 0.714286 630
+Giorno: 26: 0.678571 700
+Giorno: 27: 0.892857 380
+Giorno: 28: 0.785714 750
+Decremento percentuale: 29.8146

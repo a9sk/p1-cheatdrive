@@ -1,0 +1,19 @@
+computer > ./a.out 12 15 3
+BGYB 3
+BGYB 3
+BGYB 3
+BGYB 3
+0
+computer > ./a.out 11 14 3
+BGYB 2
+BGYB 2
+BGYB 2
+2
+computer > ./a.out 11 14 2.4
+BGYB 4.4
+BGYB 4.4
+BGYB 4.4
+BGYB 4.4
+1.4
+computer > ./a.out 2 2 2.4
+2

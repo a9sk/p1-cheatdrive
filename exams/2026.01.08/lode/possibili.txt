@@ -1,0 +1,598 @@
+Perfetto, allora facciamo un “pacchetto Lode” completo 😊
+
+Ti do:
+
+1. ✅ **Soluzione completa** dell’esercizio del labirinto (con funzione ricorsiva).
+2. ✅ **Variante più complessa** sullo stesso tema.
+3. ✅ **Altri 3 esercizi Lode** nello stesso stile degli appelli caricati.
+
+---
+
+## 1️⃣ Soluzione completa – `esistePercorso`
+
+Ricordo lo statement sintetico:
+
+> Data una matrice `N×N` di `char` con simboli `S`, `E`, `.`, `'#'`, scrivere una funzione
+> `bool esistePercorso(char** lab, int N, int r, int c);`
+> che, partendo da `(r,c)`, restituisce `true` se esiste un percorso fino a `E` muovendosi solo su, giù, sinistra, destra, evitando muri `'#'`.
+> La funzione deve essere **ricorsiva**, **senza cicli** al suo interno (né nelle eventuali ausiliarie ricorsive), e può marcare celle visitate.
+
+### 1.1 Solo la funzione (come in un tipico `lode.cpp` d’esame)
+
+Questa è la parte che inseriresti nel file d’esame, senza toccare il `main`:
+
+```cpp
+bool esistePercorso(char** lab, int N, int r, int c) {
+    // 1. Controllo out-of-bounds
+    if (r < 0 || r >= N || c < 0 || c >= N) {
+        return false;
+    }
+
+    // 2. Se muro, o già visitato, niente da fare
+    if (lab[r][c] == '#' || lab[r][c] == 'x') {
+        return false;
+    }
+
+    // 3. Se ho trovato l'uscita
+    if (lab[r][c] == 'E') {
+        return true;
+    }
+
+    // 4. Mark della cella come visitata
+    // (posso sovrascrivere anche 'S' o '.' con 'x')
+    char old = lab[r][c];
+    lab[r][c] = 'x';
+
+    // 5. Ricorsione nelle 4 direzioni
+    bool found =
+        esistePercorso(lab, N, r - 1, c) || // su
+        esistePercorso(lab, N, r + 1, c) || // giù
+        esistePercorso(lab, N, r, c - 1) || // sinistra
+        esistePercorso(lab, N, r, c + 1);   // destra
+
+    // (Opzionale: se vuoi "ripristinare" la cella)
+    // lab[r][c] = old;
+
+    return found;
+}
+```
+
+Niente cicli (`for`/`while`/`do`), solo chiamate ricorsive.
+
+---
+
+### 1.2 Programma di esempio completo (FACOLTATIVO, per provare a casa)
+
+Se vuoi testare tutto in locale, puoi usare questo `lode.cpp` stand-alone:
+
+```cpp
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+bool esistePercorso(char** lab, int N, int r, int c) {
+    if (r < 0 || r >= N || c < 0 || c >= N) {
+        return false;
+    }
+
+    if (lab[r][c] == '#' || lab[r][c] == 'x') {
+        return false;
+    }
+
+    if (lab[r][c] == 'E') {
+        return true;
+    }
+
+    char old = lab[r][c];
+    lab[r][c] = 'x';
+
+    bool found =
+        esistePercorso(lab, N, r - 1, c) || // su
+        esistePercorso(lab, N, r + 1, c) || // giù
+        esistePercorso(lab, N, r, c - 1) || // sinistra
+        esistePercorso(lab, N, r, c + 1);   // destra
+
+    // Se vuoi ripristinare:
+    // lab[r][c] = old;
+
+    return found;
+}
+
+int main() {
+    int N;
+    cin >> N;
+
+    char** lab = new char*[N];
+    for (int i = 0; i < N; ++i) {
+        lab[i] = new char[N];
+    }
+
+    int startR = -1, startC = -1;
+
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            cin >> lab[i][j];
+            if (lab[i][j] == 'S') {
+                startR = i;
+                startC = j;
+            }
+        }
+    }
+
+    if (startR == -1 || startC == -1) {
+        cout << "Nessun punto di partenza S trovato." << endl;
+    } else {
+        bool ok = esistePercorso(lab, N, startR, startC);
+        if (ok) {
+            cout << "Esiste un percorso!" << endl;
+        } else {
+            cout << "Non esiste alcun percorso." << endl;
+        }
+    }
+
+    for (int i = 0; i < N; ++i) {
+        delete [] lab[i];
+    }
+    delete [] lab;
+
+    return 0;
+}
+```
+
+---
+
+## 2️⃣ Variante più complessa sullo stesso tema
+
+Ora ti propongo una **versione Lode “hard”** che potresti davvero usare come esercizio aggiuntivo.
+
+### 2.1 Testo variante – “Numero di percorsi distinti nel labirinto”
+
+> Si consideri lo stesso labirinto `N×N` di prima, con simboli `S`, `E`, `.`, `'#'`.
+>
+> Scrivere una funzione **ricorsiva**:
+>
+> ```cpp
+> int contaPercorsi(char** lab, int N, int r, int c);
+> ```
+>
+> che **conta quanti percorsi distinti** esistono da `(r, c)` fino alla cella `E`, muovendosi solo su/giù/sinistra/destra, senza mai passare due volte nella stessa cella nello stesso percorso.
+>
+> Vincoli:
+>
+> * La funzione deve essere **ricorsiva** e non deve contenere cicli (`for`, `while`, `do-while`).
+> * Niente variabili globali o `static`.
+> * È permesso marcare le celle visitate con un carattere (es. `'x'`) e poi **ripristinarle** durante il backtracking.
+> * Il main legge la matrice, trova `S`, e invoca `contaPercorsi`.
+
+### 2.2 Possibile soluzione
+
+```cpp
+int contaPercorsi(char** lab, int N, int r, int c) {
+    // Fuori dai bordi
+    if (r < 0 || r >= N || c < 0 || c >= N) {
+        return 0;
+    }
+
+    // Muro o già visitata
+    if (lab[r][c] == '#' || lab[r][c] == 'x') {
+        return 0;
+    }
+
+    // Arrivato all'uscita
+    if (lab[r][c] == 'E') {
+        return 1;
+    }
+
+    // Mark come visitato
+    char old = lab[r][c];
+    lab[r][c] = 'x';
+
+    // Somma dei percorsi dalle 4 direzioni
+    int tot = 0;
+    tot += contaPercorsi(lab, N, r - 1, c);
+    tot += contaPercorsi(lab, N, r + 1, c);
+    tot += contaPercorsi(lab, N, r, c - 1);
+    tot += contaPercorsi(lab, N, r, c + 1);
+
+    // Backtracking: ripristino la cella
+    lab[r][c] = old;
+
+    return tot;
+}
+```
+
+---
+
+## 3️⃣ Altri esercizi Lode nello stesso stile
+
+Ti propongo **3 esercizi Lode nuovi**, coerenti con il livello e lo stile di quelli che hai caricato (ricorsione, strutture dati, code, alberi…).
+
+---
+
+### 🔹 Esercizio Lode A – “Somma livelli in un albero binario (BFS con coda)”
+
+**Contesto:** viene fornita una libreria `tree.h` per la gestione di un albero binario di interi (non necessariamente BST), con tipo `Node` definito con:
+
+```cpp
+struct Node {
+    int value;
+    Node* left;
+    Node* right;
+};
+```
+
+e funzioni per creare un albero di test (già usate nel `main`).
+
+> **Testo:**
+>
+> Scrivere all’interno di `lode.cpp` la funzione:
+>
+> ```cpp
+> int sommaLivello(Node* root, int k);
+> ```
+>
+> che calcola la somma dei valori di tutti i nodi che si trovano **al livello `k`** dell’albero, dove:
+>
+> * `root` è la radice;
+> * il livello della radice è 0;
+> * i suoi figli sono al livello 1, e così via.
+>
+> La funzione deve utilizzare una **coda** come struttura dati di supporto (fornita in `queue.h`), ed effettuare una **visita in ampiezza (BFS)** dell’albero per trovare tutti i nodi al livello k.
+>
+> Vincoli:
+>
+> * È possibile usare cicli (`while`) nella funzione.
+> * È vietato usare variabili globali o `static`.
+> * Non si possono usare altre strutture dati (niente `vector`, `list`, ecc.), solo la coda fornita.
+> * Il `main` e gli header forniti **non devono essere modificati**.
+>
+> Esempio (a scopo illustrativo):
+>
+> * Albero:
+>   livello 0: `10`
+>   livello 1: `5`, `20`
+>   livello 2: `3`, `7`, `15`, `30`
+> * `sommaLivello(root, 2)` deve restituire `3 + 7 + 15 + 30 = 55`.
+
+---
+
+### 🔹 Esercizio Lode B – “Compressione di sequenze in lista concatenata”
+
+Viene fornita una lista concatenata semplice di interi non ordinati, con libreria `lista.h`:
+
+```cpp
+struct Node {
+    int value;
+    Node* next;
+};
+```
+
+> **Testo:**
+>
+> Scrivere all’interno di `lode.cpp` la funzione:
+>
+> ```cpp
+> void comprimiSequenze(Node*& head);
+> ```
+>
+> che **modifica la lista in-place** nel modo seguente:
+>
+> * ogni **sequenza massimale di nodi consecutivi con lo stesso valore** viene compressa in **un solo nodo** contenente:
+>
+>   * lo stesso valore della sequenza;
+>   * come nuovo valore, la **lunghezza** della sequenza (a scelta: puoi mantenere il valore originale e salvare la lunghezza in una lista separata, oppure modificare il valore stesso diventando la lunghezza — il testo può fissare la variante che preferisci).
+>
+> Per semplicità scegliamo questa specifica:
+>
+> * Ogni sequenza di nodi consecutivi con lo **stesso `value`** viene compressa in un singolo nodo con `value` pari alla **lunghezza della sequenza**.
+>
+> Esempio:
+> Lista iniziale:
+> `5 -> 5 -> 5 -> 2 -> 2 -> 7 -> 7 -> 7 -> 7 -> 1 -> NULL`
+> Lista finale:
+> `3 -> 2 -> 4 -> 1 -> NULL`
+>
+> Vincoli:
+>
+> * La funzione **non deve usare array**, né strutture di libreria (`vector`, `string`, ecc.).
+> * È ammessa un’implementazione iterativa con puntatori (tipico stile da esame).
+> * Non sono ammessi `new`/`delete` per creare nodi aggiuntivi: la compressione deve riusare i nodi esistenti, eliminando quelli in eccesso.
+> * Il `main` per la costruzione e stampa della lista è già fornito e non va modificato.
+
+*(Se vuoi, posso anche scriverti una possibile implementazione con scorrimento e cancellazione dei nodi intermedi.)*
+
+---
+
+### 🔹 Esercizio Lode C – “Valutazione di un’espressione in forma di albero”
+
+Viene fornita una struttura per un **albero di espressione aritmetica**, dove ogni nodo può essere:
+
+* un operatore binario: `'+'`, `'-'`, `'*'`, `'/'`
+* oppure un numero intero (foglia).
+
+```cpp
+struct ExprNode {
+    bool isOperator;   // true se operatore, false se numero
+    char op;           // operatore se isOperator == true
+    int value;         // valore se isOperator == false
+    ExprNode* left;
+    ExprNode* right;
+};
+```
+
+> **Testo:**
+>
+> Scrivere all’interno di `lode.cpp` la funzione ricorsiva:
+>
+> ```cpp
+> int valutaEspressione(ExprNode* root);
+> ```
+>
+> che, dato un albero di espressione binaria ben formata, **valuta** l’espressione e ne restituisce il risultato come `int`.
+>
+> Regole:
+>
+> * Se `root->isOperator == false`, allora il nodo è una **foglia** e contiene direttamente un valore intero → restituirlo.
+> * Se `root->isOperator == true`, allora:
+>
+>   * valutare ricorsivamente il sottoalbero sinistro (`L`) e destro (`R`);
+>   * applicare l’operatore `root->op`:
+>
+>     * `'+'` → `L + R`
+>     * `'-'` → `L - R`
+>     * `'*'` → `L * R`
+>     * `'/'` → se `R == 0`, considerare `R = 1` (come nell’esercizio `calc`: divisione per 0 trattata come divisione per 1);
+> * Restituire il risultato come `int`.
+>
+> Vincoli:
+>
+> * Implementazione obbligatoriamente **ricorsiva**.
+> * Niente strutture di supporto (niente stack espliciti, niente array).
+> * Niente variabili globali o `static`.
+> * Il `main` crea alcuni alberi di test (ad esempio per l’espressione `(3 + 5) * 2`) e stampa il risultato, e **non deve essere modificato**.
+
+---
+
+Se vuoi, nei prossimi messaggi posso:
+
+* scriverti **le soluzioni** (o solo gli header) anche per A, B, C;
+* oppure trasformare uno di questi in un vero testo “Esame 20xxmmgg – Esercizio Lode” impaginato come quelli che hai caricato, pronto da incollare in un PDF.
+
+Perfetto, andiamo dritti al punto: qui sotto trovi le **soluzioni complete** per gli esercizi A, B e C, pronte da incollare in un ipotetico `lode.cpp` (adattando eventualmente nomi di funzioni di coda/lista alla tua libreria).
+
+---
+
+## 🅰️ Esercizio A – `sommaLivello`
+
+**Ricorda il problema:** dato un albero binario (`Node* root`) e un intero `k`, calcolare la somma dei valori dei nodi al livello `k`, usando una **coda** e una BFS (visita per livelli).
+
+Supponiamo di avere in `queue.h` una coda di `Node*` con interfaccia tipo:
+
+```cpp
+// Esempio tipico, adatta ai tuoi header reali
+void enqueue(Node* x);
+Node* dequeue();
+bool isEmpty();
+int size();   // opzionale
+```
+
+### Soluzione possibile (con BFS a livelli)
+
+Qui uso una coda parametrica “concettuale”; nel tuo codice reale rimpiazzerai `Queue` e i metodi con quelli definiti nella libreria fornita (per esempio `Queue q; q.enqueue(...)`, ecc.).
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Si assume che Node sia definito in tree.h, ad esempio:
+// struct Node {
+//     int value;
+//     Node* left;
+//     Node* right;
+// };
+
+// Si assume di avere una coda di Node* definita in queue.h, ad esempio:
+// struct Queue { ... };
+// void enqueue(Queue&, Node*);
+// Node* dequeue(Queue&);
+// bool isEmpty(const Queue&);
+
+// Implementazione logica: BFS per livelli.
+int sommaLivello(Node* root, int k) {
+    if (root == nullptr || k < 0) {
+        return 0;
+    }
+
+    Queue q;           // coda di Node*
+    initQueue(q);      // se la tua libreria lo richiede (oppure costruttore)
+
+    enqueue(q, root);
+    int livello = 0;
+
+    while (!isEmpty(q)) {
+        // Numero di nodi nel livello corrente
+        int numNodiLivello = size(q); // se non hai size(q), puoi gestirlo con un trucco, vedi sotto
+
+        int sommaCorrente = 0;
+
+        // Processa tutti i nodi del livello corrente
+        for (int i = 0; i < numNodiLivello; ++i) {
+            Node* nodo = dequeue(q);
+            if (livello == k) {
+                sommaCorrente += nodo->value;
+            }
+
+            if (nodo->left != nullptr) {
+                enqueue(q, nodo->left);
+            }
+            if (nodo->right != nullptr) {
+                enqueue(q, nodo->right);
+            }
+        }
+
+        if (livello == k) {
+            // Abbiamo appena processato il livello k
+            return sommaCorrente;
+        }
+
+        livello++;
+    }
+
+    // Se il livello k non esiste
+    return 0;
+}
+```
+
+> 🔧 Se la tua coda **non ha** `size(q)`, puoi usare il “sentinella” (ad esempio enqueue di `nullptr` per marcare cambio livello) o tenere due contatori, ma la logica dell’esercizio resta identica: BFS per livelli con somma solo al livello `k`.
+
+---
+
+## 🅱️ Esercizio B – `comprimiSequenze`
+
+**Ricorda il problema:** data una lista concatenata semplice di interi:
+
+```cpp
+struct Node {
+    int value;
+    Node* next;
+};
+```
+
+modificare in-place la lista in modo che ogni **sequenza massimale di valori uguali** venga compressa in 1 solo nodo, il cui `value` è la **lunghezza** della sequenza.
+Esempio:
+`5 -> 5 -> 5 -> 2 -> 2 -> 7 -> 7 -> 7 -> 7 -> 1 -> NULL`
+diventa
+`3 -> 2 -> 4 -> 1 -> NULL`.
+
+Niente array, niente vector; si possono usare `delete` per rimuovere nodi in eccesso, ma **non si creano nuovi nodi**.
+
+### Soluzione iterativa in-place
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// struct Node {
+//     int value;
+//     Node* next;
+// };
+
+void comprimiSequenze(Node*& head) {
+    if (head == nullptr) {
+        return;
+    }
+
+    Node* curr = head;
+
+    while (curr != nullptr) {
+        int count = 1;
+        Node* runner = curr->next;
+
+        // Conta quanti nodi consecutivi hanno lo stesso valore
+        while (runner != nullptr && runner->value == curr->value) {
+            count++;
+            Node* toDelete = runner;
+            runner = runner->next;
+            delete toDelete;  // elimina i nodi in eccesso
+        }
+
+        // Comprimi: il nodo corrente rappresenta tutta la sequenza
+        curr->value = count;
+        curr->next = runner;
+
+        // Passa alla prossima sequenza
+        curr = runner;
+    }
+}
+```
+
+Questa soluzione:
+
+* riutilizza il primo nodo della sequenza,
+* elimina gli altri,
+* aggiorna il valore del primo con la lunghezza.
+
+---
+
+## 🅲 Esercizio C – `valutaEspressione`
+
+**Ricorda il problema:** data una struttura per albero di espressione:
+
+```cpp
+struct ExprNode {
+    bool isOperator;   // true se operatore, false se numero
+    char op;           // '+', '-', '*', '/' se isOperator == true
+    int value;         // valore intero se isOperator == false
+    ExprNode* left;
+    ExprNode* right;
+};
+```
+
+scrivere la funzione ricorsiva:
+
+```cpp
+int valutaEspressione(ExprNode* root);
+```
+
+* Se il nodo è foglia (`isOperator == false`) → restituisci `value`.
+* Se è operatore:
+
+  * valuta ricorsivamente `left` e `right`,
+  * applica l’operatore.
+* Per la divisione, se il denominatore è 0, trattalo come 1 (come nell’esercizio `calc` che avevamo inventato).
+
+### Soluzione ricorsiva
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// struct ExprNode {
+//     bool isOperator;
+//     char op;
+//     int value;
+//     ExprNode* left;
+//     ExprNode* right;
+// };
+
+int valutaEspressione(ExprNode* root) {
+    if (root == nullptr) {
+        // Albero vuoto: a scelta si può considerare 0
+        return 0;
+    }
+
+    // Caso base: nodo foglia (numero)
+    if (!root->isOperator) {
+        return root->value;
+    }
+
+    // Caso ricorsivo: nodo operatore
+    int L = valutaEspressione(root->left);
+    int R = valutaEspressione(root->right);
+
+    switch (root->op) {
+        case '+':
+            return L + R;
+        case '-':
+            return L - R;
+        case '*':
+            return L * R;
+        case '/':
+            if (R == 0) {
+                R = 1;  // come da specifica: divisione per 0 → divisione per 1
+            }
+            return L / R;
+        default:
+            // operatore non riconosciuto: a scelta si può restituire 0
+            return 0;
+    }
+}
+```
+
+---
+
+Se vuoi, nel prossimo giro posso:
+
+* adattare il codice di `sommaLivello` ai **nomi esatti** delle tue `queue.h` e `tree.h` (se me li copi),
+* oppure costruire dei **main di test** anche per B e C per poterli compilare e provare subito.
+

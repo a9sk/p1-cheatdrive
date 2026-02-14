@@ -1,0 +1,139 @@
+Ecco una proposta per un nuovo esercizio "Lode", diverso dal precedente ma con la stessa struttura e complessità (livello esame universitario standard).
+
+Questa volta l'esercizio si concentra sulla **topologia dell'albero** (la sua forma visibile) piuttosto che sui valori numerici, mantenendo l'obbligo dell'uso della **Coda (Queue)**.
+
+---
+
+###Esame 20251210 - Esercizio Lode**--- PAGE 1 ---**
+
+**Esame 20251210**
+
+**Esercizio lode**
+
+**(1) Esercizio Lode**
+
+**ESSAY marked out of 1 penalty 0 File picker**
+
+In un albero binario, la **"Vista Destra"** (Right Side View) è definita come l'insieme dei nodi visibili immaginando di osservare l'albero dal suo lato destro.
+In termini più formali, la vista destra è composta dall'**ultimo nodo di ogni livello** (quello più a destra) esplorando l'albero dall'alto verso il basso.
+
+Ad esempio, dato il seguente albero binario:
+
+```text
+        1            <--- Vedo 1
+       / \
+      2   3          <--- Vedo 3
+     / \   \
+    5   4   7        <--- Vedo 7
+         \
+          8          <--- Vedo 8
+
+```
+
+La Vista Destra è la sequenza: **1, 3, 7, 8**.
+
+Nota bene: anche se il nodo 8 è figlio del nodo 4 (che sta nel sottoalbero sinistro della radice), esso è l'unico nodo presente al livello 3, e quindi è visibile da destra.
+
+Data la libreria `tree.h` per la gestione degli alberi binari di interi, e la libreria `queue.h` per la gestione di una coda di `Node*`, si realizzi all'interno del file `lode.cpp` la funzione:
+
+`void stampaVistaDestra(Node* root);`
+
+che prende in ingresso la radice di un albero binario e stampa a video, in ordine dal livello 0 all'ultimo livello, i valori dei nodi che appartengono alla vista destra, separati da uno spazio (o a capo).
+
+**Vincoli di implementazione:**
+
+* La funzione **DEVE** utilizzare una **Coda** (tramite la libreria `queue.h` fornita) come struttura di supporto.
+* L'approccio deve essere iterativo (BFS - Breadth First Search).
+* Si assuma che l'albero non sia vuoto (se vuoto, non stampa nulla).
+
+Il file `lode.cpp` contiene un `main()` già pronto e include gli header file necessari. Di seguito è riportato un output di esempio:
+
+```text
+computer > ./a.out
+Albero costruito:
+      1
+    /   \
+   2     3
+    \     
+     5    
+
+Vista Destra:
+1 3 5
+
+```
+
+**Note importanti:**
+
+* Scaricare i file `lode.cpp`, `tree.h`, `tree.cpp`, `queue.h`, `queue.cpp`.
+* Modificare **solo** il file `lode.cpp` inserendo la definizione della funzione `stampaVistaDestra` ed eventuali funzioni ausiliarie.
+* All'interno di questo programma **non è ammesso** l'utilizzo di variabili globali o di tipo `static` e di funzioni di libreria al di fuori di quelle definite in `iostream` e `cstdlib`.
+
+**--- PAGE 2 ---**
+
+* Si ricorda che gli esempi di esecuzione sono puramente indicativi e la soluzione proposta NON deve funzionare solo per l'input fornito, ma deve essere robusta a variazioni compatibili con la specifica.
+* Si ricorda di inserire solo nuovo codice e di NON MODIFICARE il resto del programma (pena annullamento dell'esercizio).
+
+**Information for graders:**
+Total of marks: 1
+
+---
+
+###Soluzione (Mental Sandbox & Code)**Logica:**
+Per risolvere il problema, dobbiamo eseguire una visita per livelli (BFS).
+
+1. Inseriamo la radice nella coda.
+2. Nel ciclo `while`, prima di processare i nodi, salviamo la `size` della coda. Questo numero ci dice quanti nodi ci sono nel livello corrente.
+3. Facciamo un ciclo `for` da `0` a `size - 1`.
+4. Estraiamo i nodi uno ad uno.
+5. Se l'indice del ciclo `for` è uguale a `size - 1` (cioè stiamo processando l'ultimo nodo di quel livello), allora stampiamo il valore. Quello è il nodo visibile da destra.
+6. Inseriamo i figli (sinistro e destro) nella coda normalmente.
+
+**Codice Soluzione (`lode.cpp`):**
+
+```cpp
+#include <iostream>
+#include "tree.h"
+#include "queue.h"
+
+using namespace std;
+
+void stampaVistaDestra(Node* root) {
+    if (root == NULL) {
+        return;
+    }
+
+    Queue q;
+    q.enqueue(root);
+
+    while (!q.isEmpty()) {
+        // Otteniamo il numero di nodi presenti nel livello corrente
+        int nodiNelLivello = q.size();
+
+        // Iteriamo su tutti i nodi di QUESTO livello
+        for (int i = 0; i < nodiNelLivello; i++) {
+            Node* current = q.dequeue();
+
+            // Se siamo all'ultimo nodo del livello corrente, lo stampiamo
+            if (i == nodiNelLivello - 1) {
+                cout << current->val << " ";
+            }
+
+            // Aggiungiamo i figli alla coda per il prossimo livello
+            if (current->left != NULL) {
+                q.enqueue(current->left);
+            }
+            if (current->right != NULL) {
+                q.enqueue(current->right);
+            }
+        }
+        // Qui finisce il livello corrente, il ciclo while ricomincia per il livello successivo
+    }
+    cout << endl;
+}
+
+```
+
+###Perché questo esercizio ha la stessa complessità?1. **Pattern Identico**: Richiede lo stesso schema mentale dell'esercizio precedente (BFS con controllo della dimensione del livello).
+2. **Variazione Minima**: Invece di calcolare una somma, si usa una condizione sull'indice (`i == size - 1`) per selezionare un elemento specifico.
+3. **Trappole**: L'errore comune è stampare solo il figlio destro. L'esempio del nodo 8 (figlio di un nodo sinistro ma visibile perché il livello a destra è vuoto) serve a testare se lo studente ha capito che deve usare una visita per livelli e non una semplice discesa a destra.
+

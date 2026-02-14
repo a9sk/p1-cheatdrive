@@ -1,0 +1,374 @@
+# Stack Traversal with Sum of Digits Exercise
+
+## Problem Statement
+Write a recursive function in C++ that traverses a stack of integers and computes the **sum of all digits** of all numbers in the stack, but leaves the stack in its **original state** after the operation completes.
+
+For example, if the stack contains `[123, 45, 6]`, the function should:
+- Calculate: (1+2+3) + (4+5) + (6) = 21
+- Return: 21
+- Leave the stack as: `[123, 45, 6]` (unchanged)
+
+## Requirements
+- Use C++ with a simple array-based stack (no STL stack, no classes)
+- Use only recursion (no loops in the traversal function)
+- The stack must contain exactly the same elements in the same order after the function completes
+- You must calculate the sum of all individual digits of all numbers
+
+## Example
+```
+Stack (bottom to top): [123, 45, 6]
+Sum of digits: (1+2+3) + (4+5) + (6) = 21
+Stack after: [123, 45, 6]  // unchanged
+```
+
+## Starter Code
+
+```cpp
+#include <iostream>
+using namespace std;
+
+#define MAX_SIZE 100
+
+// Stack structure using arrays
+int stack[MAX_SIZE];
+int top = -1;
+
+// Basic stack operations
+void push(int value) {
+    if (top < MAX_SIZE - 1) {
+        stack[++top] = value;
+    }
+}
+
+int pop() {
+    if (top >= 0) {
+        return stack[top--];
+    }
+    return -1; // Error value
+}
+
+int peek() {
+    if (top >= 0) {
+        return stack[top];
+    }
+    return -1;
+}
+
+bool isEmpty() {
+    return top == -1;
+}
+
+void printStack() {
+    cout << "Stack (bottom to top): [";
+    for (int i = 0; i <= top; i++) {
+        cout << stack[i];
+        if (i < top) cout << ", ";
+    }
+    cout << "]" << endl;
+}
+
+// Helper function to calculate sum of digits of a single number
+int sumDigits(int num) {
+    // TODO: Implement recursively
+    return 0;
+}
+
+// Main recursive function to traverse stack and sum all digits
+int traverseAndSum() {
+    // TODO: Implement this function
+    // It should:
+    // 1. Traverse the entire stack recursively
+    // 2. Calculate sum of digits of all numbers
+    // 3. Restore the stack to original state
+    return 0;
+}
+
+int main() {
+    // Test case 1
+    push(123);
+    push(45);
+    push(6);
+    
+    cout << "Before traversal:" << endl;
+    printStack();
+    
+    int result = traverseAndSum();
+    
+    cout << "\nAfter traversal:" << endl;
+    printStack();
+    cout << "Sum of all digits: " << result << endl;
+    
+    cout << "\n--- Test case 2 ---" << endl;
+    // Clear stack
+    while (!isEmpty()) pop();
+    
+    push(999);
+    push(1);
+    push(88);
+    
+    cout << "Before traversal:" << endl;
+    printStack();
+    
+    result = traverseAndSum();
+    
+    cout << "\nAfter traversal:" << endl;
+    printStack();
+    cout << "Sum of all digits: " << result << endl;
+    
+    return 0;
+}
+```
+
+## Expected Output
+```
+Before traversal:
+Stack (bottom to top): [123, 45, 6]
+
+After traversal:
+Stack (bottom to top): [123, 45, 6]
+Sum of all digits: 21
+
+--- Test case 2 ---
+Before traversal:
+Stack (bottom to top): [999, 1, 88]
+
+After traversal:
+Stack (bottom to top): [999, 1, 88]
+Sum of all digits: 44
+```
+
+## Hints
+<details>
+<summary>Hint 1</summary>
+You'll need to use the recursion call stack to temporarily store the popped values, then push them back as the recursion unwinds.
+</details>
+
+<details>
+<summary>Hint 2</summary>
+The base case occurs when the stack is empty. On the way back up from recursion, restore the stack.
+</details>
+
+<details>
+<summary>Hint 3</summary>
+Structure: Pop → Recurse → Calculate → Push back
+</details>
+
+## Challenge Extensions
+1. **Handle negative numbers**: Modify to work with negative integers (sum absolute value of digits)
+2. **Product instead of sum**: Calculate the product of all digits instead
+3. **Count specific digit**: Count how many times a specific digit appears across all numbers
+4. **Find maximum digit**: Find the largest digit across all numbers in the stack
+
+## Complexity Questions
+1. What is the time complexity of your solution?
+2. What is the space complexity (considering the recursion call stack)?
+3. How many times is each element accessed?
+
+Good luck! 🚀
+
+#include <iostream>
+using namespace std;
+
+#define MAX_SIZE 100
+
+// Stack structure using arrays
+int stack[MAX_SIZE];
+int top = -1;
+
+// Basic stack operations
+void push(int value) {
+    if (top < MAX_SIZE - 1) {
+        stack[++top] = value;
+    }
+}
+
+int pop() {
+    if (top >= 0) {
+        return stack[top--];
+    }
+    return -1; // Error value
+}
+
+int peek() {
+    if (top >= 0) {
+        return stack[top];
+    }
+    return -1;
+}
+
+bool isEmpty() {
+    return top == -1;
+}
+
+void printStack() {
+    cout << "Stack (bottom to top): [";
+    for (int i = 0; i <= top; i++) {
+        cout << stack[i];
+        if (i < top) cout << ", ";
+    }
+    cout << "]" << endl;
+}
+
+// Helper function to calculate sum of digits of a single number recursively
+int sumDigits(int num) {
+    // Handle negative numbers by taking absolute value
+    if (num < 0) {
+        num = -num;
+    }
+    
+    // Base case: single digit number
+    if (num < 10) {
+        return num;
+    }
+    
+    // Recursive case: last digit + sum of remaining digits
+    return (num % 10) + sumDigits(num / 10);
+}
+
+// Main recursive function to traverse stack and sum all digits
+int traverseAndSum() {
+    // Base case: if stack is empty, return 0
+    if (isEmpty()) {
+        return 0;
+    }
+    
+    // Pop the top element
+    int currentElement = pop();
+    
+    // Recursively get the sum from the rest of the stack
+    int sumFromRest = traverseAndSum();
+    
+    // Calculate sum of digits for the current element
+    int currentDigitSum = sumDigits(currentElement);
+    
+    // Push the element back to restore the stack
+    push(currentElement);
+    
+    // Return total sum
+    return currentDigitSum + sumFromRest;
+}
+
+int main() {
+    // Test case 1
+    push(123);
+    push(45);
+    push(6);
+    
+    cout << "Before traversal:" << endl;
+    printStack();
+    
+    int result = traverseAndSum();
+    
+    cout << "\nAfter traversal:" << endl;
+    printStack();
+    cout << "Sum of all digits: " << result << endl;
+    cout << "Expected: 21 (1+2+3+4+5+6)" << endl;
+    
+    cout << "\n--- Test case 2 ---" << endl;
+    // Clear stack
+    while (!isEmpty()) pop();
+    
+    push(999);
+    push(1);
+    push(88);
+    
+    cout << "Before traversal:" << endl;
+    printStack();
+    
+    result = traverseAndSum();
+    
+    cout << "\nAfter traversal:" << endl;
+    printStack();
+    cout << "Sum of all digits: " << result << endl;
+    cout << "Expected: 44 (9+9+9+1+8+8)" << endl;
+    
+    cout << "\n--- Test case 3 ---" << endl;
+    // Clear stack
+    while (!isEmpty()) pop();
+    
+    push(1000);
+    push(2345);
+    push(67);
+    
+    cout << "Before traversal:" << endl;
+    printStack();
+    
+    result = traverseAndSum();
+    
+    cout << "\nAfter traversal:" << endl;
+    printStack();
+    cout << "Sum of all digits: " << result << endl;
+    cout << "Expected: 28 (1+0+0+0+2+3+4+5+6+7)" << endl;
+    
+    return 0;
+}
+```
+
+## Explanation
+
+### `sumDigits(int num)` Function
+This helper function recursively calculates the sum of all digits in a single number:
+
+1. **Handle negatives**: Convert negative numbers to positive (absolute value)
+2. **Base Case**: If the number is less than 10 (single digit), return the number itself
+3. **Recursive Case**:
+   - Get the last digit using `num % 10`
+   - Get the sum of remaining digits by recursively calling `sumDigits(num / 10)`
+   - Return the sum of both
+
+**Example**: For `sumDigits(123)`:
+- 123 % 10 = 3, recurse with 123 / 10 = 12
+- 12 % 10 = 2, recurse with 12 / 10 = 1
+- 1 < 10, return 1
+- Unwind: 2 + 1 = 3
+- Unwind: 3 + 3 = 6
+
+### `traverseAndSum()` Function
+This function recursively traverses the entire stack and accumulates the sum of all digits:
+
+1. **Base Case**: If the stack is empty, return 0
+2. **Recursive Case**:
+   - Pop the top element
+   - Recursively get the sum from the rest of the stack
+   - Calculate the sum of digits for the current element using `sumDigits()`
+   - **Push the element back** (this is crucial to restore the stack!)
+   - Return the total sum
+
+**Key Point**: The stack is restored during the unwinding phase of the recursion. Each element that was popped is pushed back in reverse order, resulting in the original stack configuration.
+
+## How It Works - Detailed Walkthrough
+
+For stack `[123, 45, 6]` (6 on top):
+
+**Forward phase (popping):**
+1. Pop 6, recurse
+2. Pop 45, recurse
+3. Pop 123, recurse
+4. Stack is empty → return 0 (base case)
+
+**Backward phase (calculating and pushing back):**
+5. Calculate digits of 123: 1+2+3 = 6, push 123 back, return 6 + 0 = 6
+6. Calculate digits of 45: 4+5 = 9, push 45 back, return 9 + 6 = 15
+7. Calculate digits of 6: 6, push 6 back, return 6 + 15 = 21
+
+**Final result**: 21, Stack restored to `[123, 45, 6]`
+
+## Visualization of the Recursion
+```
+traverseAndSum() called with stack: [123, 45, 6]
+├─ Pop 6
+├─ Call traverseAndSum() with stack: [123, 45]
+│  ├─ Pop 45
+│  ├─ Call traverseAndSum() with stack: [123]
+│  │  ├─ Pop 123
+│  │  ├─ Call traverseAndSum() with stack: []
+│  │  │  └─ Return 0 (empty stack)
+│  │  ├─ sumDigits(123) = 6
+│  │  ├─ Push 123 back → stack: [123]
+│  │  └─ Return 6 + 0 = 6
+│  ├─ sumDigits(45) = 9
+│  ├─ Push 45 back → stack: [123, 45]
+│  └─ Return 9 + 6 = 15
+├─ sumDigits(6) = 6
+├─ Push 6 back → stack: [123, 45, 6]
+└─ Return 6 + 15 = 21

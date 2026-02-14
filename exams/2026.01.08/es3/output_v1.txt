@@ -1,0 +1,7 @@
+computer > ./a.out
+Contenuto della pila: 34 23 12
+Risultato calcola: 15
+Contenuto della pila: 34 23 12
+Stack vuoto
+Risultato calcola: 0
+Stack vuoto

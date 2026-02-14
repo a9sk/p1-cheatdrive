@@ -1,0 +1,19 @@
+computer > ./a.out 12 15 3
+RYRYR 0
+RYRYR 0
+RYRYR 0
+RYRYR 0
+0
+computer > ./a.out 11 14 3
+RYR 5
+RYR 5
+RYR 5
+2
+computer > ./a.out 11 14 2.4
+RYRYR 2
+RYRYR 2
+RYRYR 2
+RYRYR 2
+1.4
+computer > ./a.out 2 2 2.4
+2

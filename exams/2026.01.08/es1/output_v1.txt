@@ -1,0 +1,31 @@
+computer > ./a.out
+Tassi di occupazione:
+Giorno: 1: 0.357143 850
+Giorno: 2: 0.25 840
+Giorno: 3: 0.142857 610
+Giorno: 4: 0.464286 1110
+Giorno: 5: 0.214286 460
+Giorno: 6: 0.642857 1720
+Giorno: 7: 0.357143 1190
+Giorno: 8: 0.357143 1230
+Giorno: 9: 0.5 1430
+Giorno: 10: 0.535714 1700
+Giorno: 11: 0.535714 1580
+Giorno: 12: 0.464286 1490
+Giorno: 13: 0.607143 1730
+Giorno: 14: 0.607143 1580
+Giorno: 15: 0.714286 1570
+Giorno: 16: 0.392857 1810
+Giorno: 17: 0.464286 1310
+Giorno: 18: 0.607143 1580
+Giorno: 19: 0.5 1200
+Giorno: 20: 0.607143 1540
+Giorno: 21: 0.571429 1580
+Giorno: 22: 0.464286 1660
+Giorno: 23: 0.178571 500
+Giorno: 24: 0.428571 1080
+Giorno: 25: 0.285714 580
+Giorno: 26: 0.321429 650
+Giorno: 27: 0.107143 350
+Giorno: 28: 0.214286 690
+Incremento percentuale per Olimpiadi: 335.492

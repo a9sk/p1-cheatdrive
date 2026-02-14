@@ -1,0 +1,189 @@
+Ecco una proposta per un nuovo esame "Esercizio Lode", progettato per avere lo stesso livello di difficoltà, stile e struttura dei file che hai caricato (in particolare simile agli esercizi su Alberi e Code del 2025).
+
+Ho mantenuto la formattazione tipica dei tuoi documenti (intestazione, contesto teorico, specifiche della funzione, vincoli e note).
+
+---
+
+###Esame 20251114 - Esercizio Lode**--- PAGE 1 ---**
+
+**Esame 20251114**
+
+**Esercizio lode**
+
+**(1) Esercizio Lode**
+
+**ESSAY marked out of 1 penalty 0 File picker**
+
+In un albero binario, i nodi sono organizzati in "livelli". La radice si trova al livello 0, i suoi figli al livello 1, i figli dei figli al livello 2, e così via.
+La "somma di livello" è definita come la somma di tutti i valori dei nodi che si trovano allo stesso livello (o profondità).
+
+Ad esempio, dato il seguente albero binario:
+
+```text
+        1          (Livello 0, somma = 1)
+       / \
+      7   0        (Livello 1, somma = 7 + 0 = 7)
+     / \
+    7  -8          (Livello 2, somma = 7 + (-8) = -1)
+
+```
+
+In questo esempio:
+
+* Il livello 0 ha somma 1.
+* Il livello 1 ha somma 7.
+* Il livello 2 ha somma -1.
+Il livello con la somma massima è il **Livello 1** (con somma 7).
+
+Data la libreria `tree.h` per la gestione degli alberi binari di interi, e la libreria `queue.h` per la gestione di una coda di `Node*` (puntatori ai nodi), si realizzi all'interno del file `lode.cpp` la funzione:
+
+`int livelloSommaMassima(Node* root);`
+
+che prende in ingresso la radice di un albero binario e restituisce **l'indice del livello** che possiede la somma dei valori più alta.
+In caso di parità (due livelli con la stessa somma massima), la funzione deve restituire il livello più vicino alla radice (quello con indice minore).
+
+**Vincoli di implementazione:**
+
+* La funzione **DEVE** utilizzare una **Coda** (tramite la libreria `queue.h` fornita) come struttura di supporto per esplorare l'albero (visita in ampiezza / BFS).
+* È possibile implementare la soluzione in modo iterativo.
+* Si assuma che l'albero non sia vuoto (contiene almeno la radice).
+* I valori dei nodi possono essere negativi.
+
+Il file `lode.cpp` contiene un `main()` già pronto e include gli header file necessari. Di seguito è riportato un output di esempio:
+
+```text
+computer > ./a.out
+Albero costruito:
+      1
+    /   \
+   7     0
+  / \
+ 7  -8
+
+Somma livello 0: 1
+Somma livello 1: 7
+Somma livello 2: -1
+
+Il livello con somma massima e': 1
+
+```
+
+**Note importanti:**
+
+* Scaricare i file `lode.cpp`, `tree.h`, `tree.cpp`, `queue.h`, `queue.cpp`.
+* Modificare **solo** il file `lode.cpp` inserendo la definizione della funzione `livelloSommaMassima` ed eventuali funzioni ausiliarie.
+* All'interno di questo programma **non è ammesso** l'utilizzo di variabili globali o di tipo `static` e di funzioni di libreria al di fuori di quelle definite in `iostream` e `cstdlib`.
+* Non è consentito utilizzare `std::vector` o altre strutture STL non fornite (usare solo la `queue` data).
+
+**--- PAGE 2 ---**
+
+* Si ricorda che gli esempi di esecuzione sono puramente indicativi e la soluzione proposta NON deve funzionare solo per l'input fornito, ma deve essere robusta a variazioni compatibili con la specifica.
+* Si ricorda di inserire solo nuovo codice e di NON MODIFICARE il resto del programma (pena annullamento dell'esercizio).
+
+**Information for graders:**
+Total of marks: 1
+
+---
+
+###Suggerimenti per la risoluzione (Mental Sandbox)Per risolvere questo esercizio mantenendo lo stile dei precedenti:
+
+1. **Struttura Dati**: Devi usare una `Queue` per fare una visita a livelli (BFS).
+2. **Algoritmo**:
+* Inserisci la `root` nella coda.
+* Usa un ciclo `while(!queue.isEmpty())`.
+* La parte critica è distinguere quando finisce un livello e inizia il successivo. Di solito si fa calcolando `size = queue.size()` all'inizio del ciclo interno per processare *tutti* i nodi di quel livello corrente prima di passare ai figli del livello successivo.
+
+
+3. **Calcolo**:
+* Per ogni livello, azzera una variabile `sommaCorrente`.
+* Somma i valori dei nodi estratti.
+* Se `sommaCorrente > sommaMassima`, aggiorna `sommaMassima` e l'indice `migliorLivello`.
+
+
+4. **Casi limite**: Albero con un solo nodo; livelli con somme negative.
+
+
+Ecco la soluzione per l'esercizio "Esercizio Lode" generato al turno precedente.
+
+La soluzione si basa su una visita in ampiezza (BFS - Breadth First Search). Per risolvere il problema di identificare i livelli, utilizziamo la dimensione della coda (`size`) prima di entrare nel ciclo che processa i nodi: questo ci permette di sapere esattamente quanti nodi appartengono al livello corrente prima di aggiungere i loro figli (che apparterranno al livello successivo).
+
+Ecco il codice da inserire nel file `lode.cpp`.
+
+```cpp
+#include <iostream>
+#include <climits> // Per INT_MIN, se necessario
+#include "tree.h"
+#include "queue.h"
+
+using namespace std;
+
+// Funzione richiesta
+int livelloSommaMassima(Node* root) {
+    // Caso base: se l'albero è vuoto, ritorniamo -1 (o gestiamo come errore)
+    if (root == NULL) {
+        return -1;
+    }
+
+    // Inizializzazione della coda per la visita BFS
+    Queue q;
+    q.enqueue(root);
+
+    int livelloCorrente = 0;
+    int livelloMax = 0;
+    // Inizializziamo la somma massima con un valore molto basso 
+    // oppure gestiamo il primo livello separatamente.
+    // Qui useremo una logica per assegnare la prima somma calcolata come massima.
+    long long sommaMax = -2147483647; // Usiamo long long per evitare overflow nella somma
+    bool primaIterazione = true;
+
+    while (!q.isEmpty()) {
+        // NUMERO DI NODI NEL LIVELLO CORRENTE
+        // È fondamentale salvare la dimensione ORA, perché la coda cambierà
+        // dimensione mentre aggiungiamo i figli.
+        int nodiNelLivello = q.size(); 
+        
+        long long sommaLivelloCorrente = 0;
+
+        // Processiamo SOLO i nodi di questo livello
+        for (int i = 0; i < nodiNelLivello; i++) {
+            Node* n = q.dequeue();
+            
+            // Aggiungi valore alla somma del livello
+            sommaLivelloCorrente += n->val;
+
+            // Aggiungi i figli alla coda (saranno processati nel PROSSIMO ciclo while)
+            if (n->left != NULL) {
+                q.enqueue(n->left);
+            }
+            if (n->right != NULL) {
+                q.enqueue(n->right);
+            }
+        }
+
+        // Se è il primo livello o se abbiamo trovato una somma maggiore
+        if (primaIterazione || sommaLivelloCorrente > sommaMax) {
+            sommaMax = sommaLivelloCorrente;
+            livelloMax = livelloCorrente;
+            primaIterazione = false;
+        }
+        // Nota: Se sommaLivelloCorrente == sommaMax, NON aggiorniamo livelloMax.
+        // Questo soddisfa il requisito: "In caso di parità... restituire il livello più vicino alla radice"
+        // poiché stiamo visitando i livelli in ordine crescente (0, 1, 2...).
+
+        livelloCorrente++;
+    }
+
+    return livelloMax;
+}
+
+```
+
+###Spiegazione della logica1. **Struttura Coda (`Queue`)**: La coda è essenziale per l'esplorazione a livelli (Level Order Traversal). Inseriamo la radice e poi iteriamo.
+2. **Il "Trucco" del `q.size()**`: La parte critica è il ciclo `for (int i = 0; i < nodiNelLivello; i++)`. Salvando la dimensione della coda all'inizio dell'iterazione del `while`, sappiamo esattamente quanti nodi ci sono a *quel* livello. Tutti i nodi che verranno inseriti (`enqueue`) all'interno del ciclo `for` appartengono al livello successivo e non verranno toccati fino alla prossima iterazione del `while`.
+3. **Gestione della Somma Massima**:
+* Usiamo una variabile `primaIterazione` (o un valore sentinella) per assicurarci che la `sommaMax` venga inizializzata correttamente con la somma del livello 0, anche se questa fosse negativa.
+* La condizione `sommaLivelloCorrente > sommaMax` è stretta (`>`). Questo garantisce che se troviamo un livello successivo con la *stessa* somma del massimo attuale, non aggiorniamo l'indice, mantenendo così l'indice più basso (più vicino alla radice) come richiesto.
+
+
+4. **Vincoli**: La soluzione usa solo le librerie permesse, non usa variabili globali e sfrutta la classe `Queue` come richiesto.
+

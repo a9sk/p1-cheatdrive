@@ -1,0 +1,457 @@
+Ok, ti preparo un **esame completo nuovo**, con 3 esercizi “normali” + 1 **Esercizio Lode**, tutti nello stile e nella complessità degli esami che hai caricato (array, matrici, liste, alberi, code, ricorsione, niente `std::string` se non indicato, main già fornito, ecc.).
+
+Puoi tranquillamente copiare/incollare e trasformare in PDF.
+
+---
+
+# Esame 2026XXXX – Programmazione (C++)
+
+## Esercizio 1 (10 punti) – Segmenti crescenti in un array
+
+In molti contesti di analisi dati (serie temporali, sensori, segnali) è utile individuare **segmenti consecutivi** in cui i valori crescono in modo strettamente crescente.
+
+Si consideri un array di interi `v` di lunghezza `n` (`1 ≤ n ≤ 1000`).
+Un **segmento crescente massimale** è una sequenza di uno o più elementi consecutivi tale che:
+
+* ogni elemento (tranne il primo del segmento) è strettamente maggiore del precedente;
+* il segmento non può essere esteso né a sinistra né a destra mantenendo la proprietà.
+
+Esempio:
+
+* `v = [3, 5, 7, 2, 4, 9, 1]`
+  I segmenti crescenti massimali sono:
+
+  * `[3, 5, 7]` (lunghezza 3)
+  * `[2, 4, 9]` (lunghezza 3)
+  * `[1]` (lunghezza 1)
+
+Si chiede di completare il file `es1.cpp` inserendo la definizione della funzione:
+
+```cpp
+int segmentiCrescenti(const int v[], int n, int ris[]);
+```
+
+che:
+
+* prende in ingresso:
+
+  * `v[]`: array di interi,
+  * `n`: numero di elementi effettivi in `v`,
+  * `ris[]`: array di interi di dimensione almeno `n`;
+* individua tutti i segmenti crescenti massimali;
+* per ogni segmento crescente massimale salva in `ris[i]` la **lunghezza** del segmento;
+* restituisce il **numero di segmenti** trovati.
+
+Nell’esempio precedente:
+
+* `segmentiCrescenti(v, 7, ris)` restituisce `3`;
+* `ris[0] = 3`, `ris[1] = 3`, `ris[2] = 1`.
+
+Nel file `es1.cpp` è già presente un `main` che:
+
+* legge `n`,
+* legge i `n` interi in `v`,
+* dichiara un array `ris`,
+* chiama `segmentiCrescenti`,
+* stampa il numero di segmenti e le lunghezze.
+
+### Vincoli
+
+* **Non** modificare il `main` né altre parti del file, ad eccezione dell’aggiunta della definizione di `segmentiCrescenti`.
+* Non sono ammessi array dinamici aggiuntivi (solo quelli già dichiarati o passati come parametro).
+* Sono permesse solo le librerie standard già incluse nel file (`iostream`, eventualmente `cstdlib`).
+
+---
+
+## Esercizio 2 (10 punti) – Matrice Toeplitz (diagonali costanti)
+
+Una matrice quadrata `N × N` (di interi) si dice **Toeplitz** se tutti gli elementi appartenenti alla stessa diagonale (che va da sinistra in alto verso destra in basso) sono uguali.
+
+Formalmente, una matrice `A` è Toeplitz se per ogni coppia di indici `i, j` (con `0 ≤ i, j < N`) vale:
+
+```text
+A[i][j] == A[i-1][j-1]  ogni volta che i > 0 e j > 0
+```
+
+Esempio di matrice Toeplitz (N = 4):
+
+```text
+1 2 3 4
+5 1 2 3
+6 5 1 2
+7 6 5 1
+```
+
+Si chiede di completare il file `es2.cpp` inserendo la definizione della funzione:
+
+```cpp
+bool matriceToeplitz(int** A, int N);
+```
+
+che:
+
+* prende in ingresso:
+
+  * `A`: matrice quadrata `N×N` di interi allocata dinamicamente,
+  * `N`: dimensione della matrice;
+* restituisce:
+
+  * `true` se la matrice è Toeplitz,
+  * `false` altrimenti.
+
+Nel file `es2.cpp` è già presente un `main` che:
+
+* legge `N`,
+* alloca dinamicamente `A` come matrice `N×N`,
+* legge gli elementi di `A`,
+* chiama `matriceToeplitz(A, N)`,
+* stampa `"SI"` se la matrice è Toeplitz, `"NO"` altrimenti,
+* dealloca la matrice.
+
+### Vincoli
+
+* Non modificare il `main` né altro codice già presente, ad eccezione dell’aggiunta della definizione di `matriceToeplitz`.
+* È vietato usare strutture dati aggiuntive (niente `vector`, `list`, ecc.).
+* Sono consentiti solo cicli e condizioni (`for`, `while`, `if`, ...).
+* Sono ammesse solo librerie standard (`iostream`, `cstdlib`) già incluse.
+
+---
+
+## Esercizio 3 (10 punti) – Filtro su lista concatenata
+
+Si consideri una lista concatenata semplice di interi definita in `lista.h` come:
+
+```cpp
+struct Node {
+    int value;
+    Node* next;
+};
+```
+
+e le relative funzioni di supporto per creare e stampare una lista, già usate nel `main` del file `es3.cpp`.
+
+Si vuole filtrare la lista in modo da **eliminare** tutti i nodi il cui valore **non** appartiene all’intervallo chiuso `[minVal, maxVal]`.
+
+Esempio:
+
+* Lista iniziale, `minVal = 10`, `maxVal = 20`:
+
+```text
+5 -> 12 -> 30 -> 18 -> 20 -> 7 -> NULL
+```
+
+* Lista finale:
+
+```text
+12 -> 18 -> 20 -> NULL
+```
+
+Si chiede di completare il file `es3.cpp` inserendo la definizione della funzione:
+
+```cpp
+Node* filtraIntervallo(Node* head, int minVal, int maxVal);
+```
+
+che:
+
+* prende in ingresso:
+
+  * `head`: puntatore alla testa della lista (può essere `NULL`),
+  * `minVal`, `maxVal`: estremi dell’intervallo ammesso;
+* rimuove dalla lista (deallocando) tutti i nodi che hanno `value < minVal` oppure `value > maxVal`;
+* restituisce il nuovo puntatore alla testa della lista (che potrebbe anche diventare `NULL`).
+
+Nel `main` di `es3.cpp`:
+
+* la lista è costruita a partire da input,
+* viene stampata prima della chiamata a `filtraIntervallo`,
+* viene chiamata `filtraIntervallo`,
+* la lista filtrata viene ristampata,
+* alla fine la lista viene deallocata.
+
+### Vincoli
+
+* Non creare nuovi nodi: bisogna **riusare** quelli esistenti ed eliminare solo quelli da scartare.
+* È obbligatorio deallocare con `delete` i nodi rimossi per evitare memory leak.
+* La funzione può essere implementata in modo iterativo o ricorsivo a scelta.
+* Non sono ammesse variabili globali o `static`.
+* Non modificare il `main` né i file `lista.h` / `lista.cpp`.
+
+---
+
+## Esercizio Lode (1 punto) – Connettività di un grafo con BFS su matrice di adiacenza
+
+In teoria dei grafi, un grafo non orientato si dice **connesso** se per ogni coppia di nodi esiste un cammino che li collega.
+
+Si consideri un grafo non orientato con `N` nodi (numerati da `0` a `N-1`), rappresentato tramite una **matrice di adiacenza** `N×N` di interi:
+
+* `A[i][j] = 1` se esiste un arco tra il nodo `i` e il nodo `j`;
+* `A[i][j] = 0` altrimenti.
+
+Si assuma che la matrice sia **simmetrica** (`A[i][j] == A[j][i]`) e che non ci siano archi multipli.
+
+Per stabilire se il grafo è connesso è sufficiente:
+
+1. partire da un nodo (ad esempio `0`),
+2. visitare il grafo con una **visita in ampiezza (BFS)** o in profondità (DFS),
+3. verificare se tutti i nodi sono stati raggiunti.
+
+Si chiede di completare il file `lode.cpp` inserendo la dichiarazione e la definizione della funzione:
+
+```cpp
+bool grafoConnesso(int** A, int N);
+```
+
+che:
+
+* prende in ingresso:
+
+  * `A`: matrice di adiacenza `N×N` di interi (0/1),
+  * `N`: numero di nodi;
+* esegue una visita in ampiezza (BFS) a partire dal nodo `0`, utilizzando **esclusivamente** la coda definita in `queue.h` come struttura di supporto;
+* restituisce:
+
+  * `true` se tutti i nodi sono raggiungibili dal nodo `0` (quindi il grafo è connesso),
+  * `false` altrimenti.
+
+Nel file `lode.cpp` sono già presenti:
+
+* un `main` che:
+
+  * legge `N`,
+  * alloca e legge la matrice di adiacenza `A`,
+  * chiama `grafoConnesso(A, N)`,
+  * stampa un messaggio che indica se il grafo è connesso o meno,
+  * dealloca la matrice;
+* l’`#include "queue.h"` e il codice per utilizzare la coda di interi (indici dei nodi).
+
+### Vincoli specifici dell’Esercizio Lode
+
+* **La visita deve essere realizzata usando obbligatoriamente la coda** definita in `queue.h` (metodi `enqueue`, `dequeue`, `isEmpty`, ecc.). Non è ammesso usare altre strutture dati di supporto (nessun array dinamico o `std::vector` come coda).
+* È consentito usare un array di `bool` (o di `int`) per tenere traccia dei nodi visitati.
+* La funzione può essere implementata iterativamente (tipico schema BFS).
+* Non è consentito usare variabili globali o `static`.
+* Non modificare il `main` né altri file al di fuori dell’inserimento della funzione `grafoConnesso` (e, se necessario, di piccole funzioni ausiliarie locali allo stesso file).
+
+---
+
+Se vuoi, nel prossimo messaggio posso:
+
+* scriverti **tutte le soluzioni** (anche per questo esame),
+* oppure trasformare questo testo in un formato ancora più simile ai tuoi PDF (con intestazioni “Esame 2026XXXX”, “Esercizio 1”, blocchi stile Moodle, ecc.).
+
+
+Perfetto, ti scrivo **le soluzioni delle funzioni** per l’esame che abbiamo inventato (Esercizi 1, 2, 3 e Lode).
+Le puoi copiare dentro i rispettivi file `es1.cpp`, `es2.cpp`, `es3.cpp`, `lode.cpp` senza toccare i `main`.
+
+---
+
+## ✅ Esercizio 1 – `segmentiCrescenti`
+
+**Firma:**
+
+```cpp
+int segmentiCrescenti(const int v[], int n, int ris[]);
+```
+
+**Soluzione:**
+
+```cpp
+int segmentiCrescenti(const int v[], int n, int ris[]) {
+    if (n <= 0) {
+        return 0;
+    }
+
+    int numSegmenti = 0;
+    int len = 1; // lunghezza del segmento corrente (almeno 1 elemento)
+
+    for (int i = 1; i < n; ++i) {
+        if (v[i] > v[i - 1]) {
+            // continua il segmento crescente
+            len++;
+        } else {
+            // fine di un segmento crescente massimale
+            ris[numSegmenti] = len;
+            numSegmenti++;
+            len = 1; // ricomincia un nuovo segmento da v[i]
+        }
+    }
+
+    // chiudi l'ultimo segmento
+    ris[numSegmenti] = len;
+    numSegmenti++;
+
+    return numSegmenti;
+}
+```
+
+---
+
+## ✅ Esercizio 2 – `matriceToeplitz`
+
+**Firma:**
+
+```cpp
+bool matriceToeplitz(int** A, int N);
+```
+
+**Soluzione:**
+
+```cpp
+bool matriceToeplitz(int** A, int N) {
+    // Una matrice 0x0 o 1x1 è banalmente Toeplitz
+    if (N <= 1) {
+        return true;
+    }
+
+    // Controlla per ogni elemento (i,j) con i>0, j>0
+    // che A[i][j] == A[i-1][j-1]
+    for (int i = 1; i < N; ++i) {
+        for (int j = 1; j < N; ++j) {
+            if (A[i][j] != A[i - 1][j - 1]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+```
+
+---
+
+## ✅ Esercizio 3 – `filtraIntervallo`
+
+**Firma:**
+
+```cpp
+Node* filtraIntervallo(Node* head, int minVal, int maxVal);
+```
+
+Si ricorda:
+
+```cpp
+struct Node {
+    int value;
+    Node* next;
+};
+```
+
+**Soluzione iterativa in-place con deallocazione dei nodi rimossi:**
+
+```cpp
+Node* filtraIntervallo(Node* head, int minVal, int maxVal) {
+    // Prima sistema la testa: elimina eventuali nodi iniziali fuori intervallo
+    while (head != nullptr &&
+          (head->value < minVal || head->value > maxVal)) {
+        Node* toDelete = head;
+        head = head->next;
+        delete toDelete;
+    }
+
+    // Se la lista è diventata vuota, siamo a posto
+    if (head == nullptr) {
+        return nullptr;
+    }
+
+    // Ora head punta a un nodo valido (dentro [minVal, maxVal])
+    Node* prev = head;
+    Node* curr = head->next;
+
+    while (curr != nullptr) {
+        if (curr->value < minVal || curr->value > maxVal) {
+            // nodo da eliminare
+            Node* toDelete = curr;
+            curr = curr->next;
+            prev->next = curr;
+            delete toDelete;
+        } else {
+            // nodo valido, avanza entrambi
+            prev = curr;
+            curr = curr->next;
+        }
+    }
+
+    return head;
+}
+```
+
+---
+
+## ⭐ Esercizio Lode – `grafoConnesso`
+
+**Firma:**
+
+```cpp
+bool grafoConnesso(int** A, int N);
+```
+
+* Grafo non orientato, matrice di adiacenza `A[N][N]` con 0/1.
+* Si deve fare una **BFS** a partire dal nodo `0` usando **la coda di `queue.h`**.
+
+Assumo che `queue.h` ti fornisca qualcosa del genere (adatta i nomi all’header reale):
+
+```cpp
+struct Queue {
+    // implementazione nascosta
+};
+
+void initQueue(Queue& q);
+bool isEmpty(const Queue& q);
+void enqueue(Queue& q, int x);
+int dequeue(Queue& q);
+```
+
+Se i nomi sono leggermente diversi, ti basta cambiare quelli.
+
+**Soluzione BFS:**
+
+```cpp
+bool grafoConnesso(int** A, int N) {
+    if (N == 0) {
+        // Nessun nodo: a scelta si può considerare connesso o no. Mettiamo true.
+        return true;
+    }
+
+    // Array di visitati
+    bool* visitato = new bool[N];
+    for (int i = 0; i < N; ++i) {
+        visitato[i] = false;
+    }
+
+    Queue q;
+    initQueue(q);
+
+    // Partiamo dal nodo 0
+    visitato[0] = true;
+    enqueue(q, 0);
+
+    int visitatiCount = 0;
+
+    while (!isEmpty(q)) {
+        int u = dequeue(q);
+        visitatiCount++;
+
+        // Esplora tutti i vicini di u
+        for (int v = 0; v < N; ++v) {
+            if (A[u][v] == 1 && !visitato[v]) {
+                visitato[v] = true;
+                enqueue(q, v);
+            }
+        }
+    }
+
+    bool connesso = (visitatiCount == N);
+
+    delete[] visitato;
+    return connesso;
+}
+```
+
+---
+
+Se vuoi, posso anche:
+
+* scriverti dei **main di test** per questi esercizi,
+* oppure trasformare questo esame+soluzioni in un “pacchetto” ben formattato tipo traccia ufficiale + soluzione docente.
+

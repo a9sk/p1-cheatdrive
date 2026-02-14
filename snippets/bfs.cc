@@ -42,3 +42,40 @@ void BFSRecursive(int graph[][100], int n, int queue[], int front, int rear, boo
 
     BFSRecursive(graph, n, queue, front + 1, rear, visited);
 }
+
+// -----------------------------------------------------------
+// -----------------------------------------------------------
+// -----------------------------------------------------------
+
+void bfs(int sx, int sy) {
+    int qx[MAX * MAX];
+    int qy[MAX * MAX];
+
+    int front = 0;
+    int rear = 0;
+
+    vis[sx][sy] = true;
+    qx[rear] = sx;
+    qy[rear] = sy;
+    rear++;
+
+    while (front < rear) {
+        int x = qx[front];
+        int y = qy[front];
+        front++;
+
+        for (int k = 0; k < 4; k++) {
+            int nx = x + dx[k];
+            int ny = y + dy[k];
+
+            if (nx >= 0 && nx < n && ny >= 0 && ny < m) {
+                if (!vis[nx][ny] && grid[nx][ny] == 1) {
+                    vis[nx][ny] = true;
+                    qx[rear] = nx;
+                    qy[rear] = ny;
+                    rear++;
+                }
+            }
+        }
+    }
+}
