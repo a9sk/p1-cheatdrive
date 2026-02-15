@@ -34,13 +34,20 @@
       "M-x "
       (all-completions "" obarray 'commandp))))))
 
+(global-hl-line-mode 1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+
 (setq history-length 1000)
 (savehist-mode 1)
 
-(fset 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t)
+;;; (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq make-backup-files nil)
-(setq auto-save-default nil)
+(setq backup-directory-alist
+      `(("." . "~/.emacs.d/backups")))
+(setq auto-save-file-name-transforms
+      `((".*" "~/.emacs.d/auto-saves/" t)))
 
 (setq c-default-style "linux"
       c-basic-offset 4)
@@ -58,8 +65,11 @@
                       :family "DejaVu Sans Mono"
                       :height 200))
 
-(global-set-key (kbd "<backtab>")
-		(lambda () (interactive)
-		  (if (use-region-p)
-		      (indent-rigidly (region-beginning) (region-end) -2)
-		    (indent-for-tab-command))))
+(global-set-key
+ (kbd "<backtab>")
+ (lambda ()
+   (interactive)
+   (if (region-active-p)
+       (indent-rigidly (region-beginning) (region-end) -2)
+     (indent-for-tab-command))))
+
